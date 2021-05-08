@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alô Doçura | Cardápio</title>
+</head>
+<body>
+	<header>
+        <h1>Alô Doçura</h1>
+        <!--img src="img/logo.png" alt="Logotipo da alô doçura, com letras em tom claro."-->        
+        <!-- Barra de navegação -->
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Início</a></li>
+                <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                <li><a th:href="@{/delivery}">Delivery</a></li>
+                <li><a th:href="@{/sobre}">Sobre</a></li>
+            </ul>
+        </nav>
+        <!-- controle do menu responsivo -->
+        <div>
+            <a class="icon" onclick="trocarClasse();">
+                <!--img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+            </a>
+        </div>
+    </header>
+    <main>
+        <div id="inicio">
+            <!-- BANNER DE FUNDO -->
+            <div class="area-flex">
+                <!--img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            </div>
+        </div>
+		<section>
+            <h2>Cardápio Alô Doçura</h2>
+            <div class="area-flex">
+                <div class="cartao">
+                    <!-- img src="img/produto1.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta marrom."-->
+                    <h3 class="titulo">
+                        Doçura ao leite
+                    </h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        Uma explosão de sabor. É assim que nossos clientes se referem ao “Doçura ao leite”, um chocolate trabalhado com derivados de soja selecionada, oferecendo ao cliente um sabor digno de quem ama um bom chocolate.
+                    </p>
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto2.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege."-->
+                    <h3 class="titulo">Doçura de amendoim</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        O “Doçura de amendoim", surgiu de um pedido do pequeno Diego, trazendo o melhor de dois mundos, misturando cacau e amendoim de uma maneira inédita, prove! Você vai se apaixonar!
+                    </p>
+                    <!-- <span class="espaco-linha">*</span> -->
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto3.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta clara."-->
+                    <h3 class="titulo">Doçura com castanhas</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        Originado de uma receita enviada por uma de nossas primeiras clientes, o “Doçura com castanhas”, traz um chocolate que tem fama de “afrodisíaco” por suas fortes notas de castanhas do Pará.
+                    </p>
+                    <!-- <span class="espaco-linha">*</span> -->
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto5.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta verde."-->
+                    <h3 class="titulo">Doçura de menta</h3>
+                    <span class="espaco-linha">*</span>
+                    <p>
+                        A “doçura de menta” traz na sua essência o frescor,  somado ao intenso chocolate doçura, formam a mistura perfeita para aqueles que buscam novos sabores ao seu paladar.
+                    </p>
+                    <!-- <span class="espaco-linha">*</span> -->
+                </div>
+            </div>
+            <span class="espaco-linha">*</span>
+            <div class="area-flex">
+                <div class="cartao">
+                    <!-- img src="img/produto4.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta preta."-->
+                    <h3 class="titulo">Doçura crocante</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                       A "doçura crocante" foi o primeiro do cardápio e nosso despertar para a necessidade de consumo e paladar consciente, foi o que marcou nossa identidade e nos trouxe de vez para o mundo vegano. É feito à base de flocos de arroz, sua receita e sabor fizeram tanto sucesso que recebemos o prêmio Sabor inovador 2018, na categoria novas tendências.
+                    </p>
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto6.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta vermelha."-->
+                    <h3 class="titulo">Doçura de morango</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        A doçura de morango, ou, “chocolate do amor” é mais um daqueles que tivemos a honra de receber de nossos clientes. Trazido a nós por Amanda Alves, o chocolate do amor trás em seu preparo o morango da himalaia, sendo este responsável por dar tanto sabor a este que, aos poucos, tem se tornado cada vez mais famoso em meio a nossa clientela.
+                    </p>
+                    <!-- <span class="espaco-linha">*</span> -->
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto7.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta vibrante."-->
+                    <h3 class="titulo">Chocolate com pimenta</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        Conhecido como “chocaliente”, nossa doçura de pimenta traz em sua essência três pimentas, sendo duas nacionais e uma importada, recebemos inúmeros chamados de pessoas que odiavam pimenta, mas, ao provar nossa doçura se tornaram “chocalientes apaixonados.” Fazendo jus ao ditado que diz que “Os opostos se atraem”.
+                    </p>
+                    <!-- <span class="espaco-linha">*</span> -->
+                </div>
+                <div class="cartao">
+                    <!-- img src="img/produto8.png" alt="Três barras de chocolate embaladas em papel de cores claras e vibrantes, com o logotipo da marca."-->
+                    <h3 class="titulo">Chocolate Surpresa</h3>
+                    <!-- <span class="espaco-linha">*</span> -->
+                    <p>
+                        Por fim temos a doçura surpresa, um mix de inovação e adrenalina. Seu preparo é feito com as receitas que recebemos, apuramos, testamos, e percebemos um grande potencial. Atualmente é feito nos sabores, lichia, abacate, mel e banana com canela. Um mais saboroso que o outro, mas não esqueça de nos dizer o que achou de cada um depois de provar ok?
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="area-flex">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Início</a></li>
+                    <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                    <li><a th:href="@{/delivery}">Delivery</a></li>
+                    <li><a th:href="@{/sobre}">Sobre</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
+            </div>
+            <div>
+                <address>
+                    <p>
+                        <!-- img src="icon/pin.png" alt="" -->
+                        Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
+                        Santos / SP
+                    </p>
+                    <p>
+                        <!-- img src="icon/mail.png" alt="" -->
+                        contato@alodocura.com
+                    </p>
+                    <p>
+                        <!-- img src="icon/phone.png" alt="" -->
+                        (13) 3352-3656
+                    </p>
+                    <p>
+                        <!-- img src="icon/mobile.png" alt=""-->
+                        (13) 9 7431-5007
+                    </p>
+                </address>
+            </div>
+        </div>
+        <div>
+            <p>
+                Desenvolvido por <!-- img src="icon/wpk.png" alt=""-->
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alô Doçura | Delivery</title>
+</head>
+<body>
+	<header>
+        <h1>Alô Doçura</h1>
+        <!-- img src="img/logo.png" alt=""-->
+        <!-- Barra de navegação -->
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Início</a></li>
+                <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                <li><a th:href="@{/delivery}">Delivery</a></li>
+                <li><a th:href="@{/sobre}">Sobre</a></li>
+            </ul>
+        </nav>
+        <!-- controle do menu responsivo -->
+        <div>
+            <a class="icon" onclick="trocarClasse();">
+                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+            </a>
+        </div>
+    </header>
+    <main>
+        <div id="inicio">
+            <!-- BANNER DE FUNDO -->
+            <div class="area-flex">
+                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            </div>
+        </div>
+        <section>
+            <h2>Peça aqui a sua doçura</h2>
+            <div class="area-form cartao fundo-claro">
+                <div id="campo-erro">
+                </div>
+                <form action="#" method="post">
+                    <p class="cor-alerta">* Dados obrigatórios</p>
+                    <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        <div class="dado-form">
+                            <label for="nome-cliente">Nome Completo <span class="cor-alerta">*</span></label>
+                            <input type="text" id="nome-cliente" name="nome-cliente" minlength="3" maxlength="60" required placeholder="Nome Completo">
+                        </div>
+                        <div class="dados-flex">
+                            <div class="dado-form">
+                                <label for="email-cliente">E-mail <span class="cor-alerta">*</span></label>
+                                <input type="email" id="email-cliente" name="email-cliente" minlength="15" maxlength="60" required placeholder="cliente@email.com">
+                            </div>
+                            <div class="dado-form">
+                                <label for="telefone-cliente">Telefone <span class="cor-alerta">*</span></label>
+                                <input type="tel" id="telefone-cliente" name="telefone-cliente" minlength="10" maxlength="13" required placeholder="(XX) XXXX-XXXX" onkeypress="return somenteNumeros(event);">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Endereço para entrega</legend>
+                        <div class="dados-flex">
+                            <div class="dado-form">
+                                <label for="cep-cliente">CEP <span class="cor-alerta">*</span></label>
+                                <input type="text" id="cep-cliente" name="cep-cliente" maxlength="8" required placeholder="XXXXX-XXX" onkeypress="return somenteNumeros(event);">
+                            </div>
+                            <div class="dado-form">
+                                <label for="endereco-cliente">Endereço <span class="cor-alerta">*</span></label>
+                                <input type="text" id="endereco-cliente" name="endereco-cliente" minlength="5" maxlength="45" required placeholder="Rua das Flores, XX">
+                            </div>
+                        </div>
+                        <div class="dados-flex">
+                            <div class="dado-form">
+                                <label for="complemento-cliente">Complemento</label>
+                                <input type="text" id="complemento-cliente" name="complemento-cliente" maxlength="20" placeholder="apartamento XX">
+                            </div>
+                            <div class="dado-form">
+                                <label for="bairro-cliente">Bairro <span class="cor-alerta">*</span></label>
+                                <input type="text" id="bairro-cliente" name="bairro-cliente" minlength="5" maxlength="45" required placeholder="Margaridas">
+                            </div>
+                            <div class="dado-form">
+                                <label for="cidade-cliente">Cidade <span class="cor-alerta">*</span></label>
+                                <input type="text" id="cidade-cliente" name="cidade-cliente" minlength="5" maxlength="45" required placeholder="Santos">
+                            </div>
+                            <div class="dado-form">
+                                <label for="estado-cliente">Estado</label>
+                                <input id="estado-cliente" name="estado-cliente" value="SP" readonly disabled>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Forma de pagamento <span class="cor-alerta">*</span></legend>
+                        <div class="dados-flex">
+                            <div>
+                                <label for="pagamento-cartao">Cartão (Crédito ou Débito)</label>
+                                <input type="radio" name="pagamento" id="pagamento-cartao" value="cartao">
+                            </div>
+                            <div>
+                                <label for="pagamento-dinheiro">À vista</label>
+                                <input type="radio" name="pagamento" id="pagamento-dinheiro" value="dinheiro" checked>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <button id="enviar-pedido" class="botao-escuro" type="submit" onclick="validarDelivery();">Finalizar Pedido</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="area-flex">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Início</a></li>
+                    <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                    <li><a th:href="@{/delivery}">Delivery</a></li>
+                    <li><a th:href="@{/sobre}">Sobre</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
+            </div>
+            <div>
+                <address>
+                    <p>
+                        <!-- img src="icon/pin.png" alt=""-->
+                        Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
+                        Santos / SP
+                    </p>
+                    <p>
+                        <!-- img src="icon/mail.png" alt=""-->
+                        contato@alodocura.com
+                    </p>
+                    <p>
+                        <!-- img src="icon/phone.png" alt="" -->
+                        (13) 3352-3656
+                    </p>
+                    <p>
+                        <!-- img src="icon/mobile.png" alt="" -->
+                        (13) 9 7431-5007
+                    </p>
+                </address>
+            </div>
+        </div>
+        <div>
+            <p>
+                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
