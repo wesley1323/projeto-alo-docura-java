@@ -21,9 +21,9 @@ public class ClienteDAO {
 	}
 	
 	public void inserirCliente(Cliente cliente) {
-		String sql = "INSERT INTO cliente(nome,cpf,telefone,endereco,bairro,cidade,estado,pagamento)" +
-	                 " VALUES (?,?,?,?,?,?,?,?)";
-		Object[] obj = new Object[8];
+		String sql = "INSERT INTO cliente(nome,cpf,telefone,endereco,bairro,cidade,estado)" +
+	                 " VALUES (?,?,?,?,?,?,?)";
+		Object[] obj = new Object[7];
 		obj[0] = cliente.getNome();
 		obj[1] = cliente.getCpf();
 		obj[2] = cliente.getTelefone();
@@ -31,7 +31,6 @@ public class ClienteDAO {
 		obj[4] = cliente.getBairro();
 		obj[5] = cliente.getCidade();
 		obj[6] = cliente.getEstado();
-		obj[7] = cliente.getPagamento();
 		
 		jdbc.update(sql, obj);
 	}

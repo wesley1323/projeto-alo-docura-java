@@ -2,7 +2,7 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Alô Doçura | Delivery</title>
+<title>Alô Doçura | Produto</title>
 </head>
 <body>
 	<header>
@@ -32,54 +32,28 @@
             </div>
         </div>
         <section>
-            <h2>Peça aqui a sua doçura</h2>
+            <h2>Cadastrar um novo Produto</h2>
             <div class="area-form cartao fundo-claro">
-                <div id="campo-erro">
-                </div>
-                <form action="#" th:action="@{/confpedido}" method="post" th:object="${cliente}">
+                <form action="#" th:action="@{/sucesso}" method="post" th:object="${produto}">
                     <p class="cor-alerta">* Dados obrigatórios</p>
-                    <fieldset>
-                        <legend>Dados Pessoais</legend>
-                        <div class="dado-form">
-                            <label for="nome-cliente">Nome Completo <span class="cor-alerta">*</span></label>
-                            <input type="text" th:field="*{nome}" id="nome-cliente" required placeholder="Nome Completo">
-                        </div>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="cpf-cliente">CPF <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{cpf}" id="cpf-cliente" required placeholder="cliente@email.com">
-                            </div>
-                            <div class="dado-form">
-                                <label for="telefone-cliente">Telefone <span class="cor-alerta">*</span></label>
-                                <input type="tel" th:field="*{telefone}" id="telefone-cliente" required placeholder="(XX) XXXX-XXXX">
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Endereço para entrega</legend>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="endereco-cliente">Endereço <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{endereco}" id="endereco-cliente" placeholder="Rua das Flores, XX">
-                            </div>
-                        </div>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="bairro-cliente">Bairro <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{bairro}" id="bairro-cliente" placeholder="Margaridas">
-                            </div>
-                            <div class="dado-form">
-                                <label for="cidade-cliente">Cidade <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{cidade}" id="cidade-cliente" placeholder="Santos">
-                            </div>
-                            <div class="dado-form">
-                                <label for="estado-cliente">Estado</label>
-                                <input id="estado-cliente" th:field="*{estado}" placeholder="SP">
-                            </div>
-                        </div>
-                    </fieldset>
                     
-                    <button id="enviar-pedido" class="botao-escuro" type="submit">Finalizar Pedido</button>
+                    <div class="dado-form">
+                        <label for="nome-produto">Nome do Produto <span class="cor-alerta">*</span></label>
+                        <input type="text" th:field="*{nomeProduto}" id="nome-produto" required placeholder="Doçura ao Leite">
+                    </div>
+                    <div class="dado-form">
+                        <label for="desc-produto">Descrição <span class="cor-alerta">*</span></label>
+                        <textarea th:field="*{descProduto}" id="desc-produto" rows="6" required placeholder="Doçura ao Leite..."></textarea>
+                    </div>
+                    <div class="dado-form">
+                        <label for="img-produto">Link da Imagem <span class="cor-alerta">*</span></label>
+                        <input type="search" th:field="*{imgProduto}" id="img-produto" required placeholder="https://pedrosalvino.github.io/projeto-orientado/img/produto1.png">
+                    </div>
+                    <div class="dado-form">
+                        <label for="valor-produto">Valor <span class="cor-alerta">*</span></label>
+                        <input type="number" th:field="*{valor}" id="valor-produto" required step="0.25">
+                    </div>
+                    <button id="add-produto" class="botao-escuro" type="submit">Adicionar</button>
                 </form>
             </div>
         </section>

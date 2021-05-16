@@ -2,7 +2,7 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Alô Doçura | Delivery</title>
+<title>Alô Doçura | Confirmar Pedido</title>
 </head>
 <body>
 	<header>
@@ -32,54 +32,37 @@
             </div>
         </div>
         <section>
-            <h2>Peça aqui a sua doçura</h2>
+            <h2>Confirme seu pedido!</h2>
             <div class="area-form cartao fundo-claro">
                 <div id="campo-erro">
                 </div>
-                <form action="#" th:action="@{/confpedido}" method="post" th:object="${cliente}">
-                    <p class="cor-alerta">* Dados obrigatórios</p>
-                    <fieldset>
-                        <legend>Dados Pessoais</legend>
-                        <div class="dado-form">
-                            <label for="nome-cliente">Nome Completo <span class="cor-alerta">*</span></label>
-                            <input type="text" th:field="*{nome}" id="nome-cliente" required placeholder="Nome Completo">
-                        </div>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="cpf-cliente">CPF <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{cpf}" id="cpf-cliente" required placeholder="cliente@email.com">
-                            </div>
-                            <div class="dado-form">
-                                <label for="telefone-cliente">Telefone <span class="cor-alerta">*</span></label>
-                                <input type="tel" th:field="*{telefone}" id="telefone-cliente" required placeholder="(XX) XXXX-XXXX">
-                            </div>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Endereço para entrega</legend>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="endereco-cliente">Endereço <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{endereco}" id="endereco-cliente" placeholder="Rua das Flores, XX">
-                            </div>
-                        </div>
-                        <div class="dados-flex">
-                            <div class="dado-form">
-                                <label for="bairro-cliente">Bairro <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{bairro}" id="bairro-cliente" placeholder="Margaridas">
-                            </div>
-                            <div class="dado-form">
-                                <label for="cidade-cliente">Cidade <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{cidade}" id="cidade-cliente" placeholder="Santos">
-                            </div>
-                            <div class="dado-form">
-                                <label for="estado-cliente">Estado</label>
-                                <input id="estado-cliente" th:field="*{estado}" placeholder="SP">
-                            </div>
-                        </div>
-                    </fieldset>
+                <form action="#" th:action="@{/pedido}" method="get" th:object="${pedido}">
                     
-                    <button id="enviar-pedido" class="botao-escuro" type="submit">Finalizar Pedido</button>
+                    <div class="dado-form">
+                        <input type="hidden" th:field="*{idCliente}" th:value="{idCliente}" id="id-cliente">
+                    </div>
+                    <div class="dado-form">
+                        <input type="date" th:field="*{data}" id="id-data" required>
+                    </div>
+                    <div class="dado-form">
+                        <input type="time" th:field="*{hora}" id="id-hora" required>
+                    </div>
+                    
+                     <fieldset>
+                        <legend>Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
+                        <div class="dados-flex">
+                            <div>
+                                <label for="pagamento-cartao">Cartão de Débito</label>
+                                <input type="radio" th:field="*{pagamento}" id="pagamento-cartao" value="cartao">
+                            </div>
+                            <div>
+                                <label for="pagamento-dinheiro">À vista</label>
+                                <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" checked>
+                            </div>
+                        </div>
+                    </fieldset>   
+    
+                    <button id="conf-pedido" class="botao-escuro" type="submit">Confirmar Pedido</button>
                 </form>
             </div>
         </section>

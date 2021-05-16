@@ -1,15 +1,15 @@
 package com.model;
 
 public class Cliente {
-	private int id;
-	private String nome, cpf, telefone,endereco, bairro, cidade, estado, pagamento;
+	private int idCliente;
+	private String nome, cpf, telefone,endereco, bairro, cidade, estado;
 	
 	public Cliente() {
 		
 	}
 	
-	public Cliente(int id, String nome, String cpf, String telefone, String endereco, String bairro, String cidade, String estado) {
-		this.id=id;
+	public Cliente(int idCliente, String nome, String cpf, String telefone, String endereco, String bairro, String cidade, String estado) {
+		this.idCliente=idCliente;
 		this.nome=nome;
 		this.cpf=cpf;
 		this.setTelefone(telefone);
@@ -19,11 +19,11 @@ public class Cliente {
 		this.estado=estado;
 	}
 	
-	public int getId() {
-		return id;
+	public int getIdCliente() {
+		return idCliente;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
 	}
 	public String getEstado() {
 		return estado;
@@ -74,14 +74,5 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
-	public String getPagamento() {
-		return pagamento;
-	}
-
-	public void setPagamento(String pagamento) {
-		this.pagamento = pagamento;
-	}
-	
 
 }
