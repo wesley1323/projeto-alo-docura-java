@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Alô Doçura | Pedido</title>
+</head>
+<body>
+    <header>
+        <h1>Alô Doçura</h1>
+        <!-- img src="img/logo.png" alt=""-->
+        <!-- Barra de navegação -->
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Início</a></li>
+                <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                <li><a th:href="@{/delivery}">Delivery</a></li>
+                <li><a th:href="@{/sobre}">Sobre</a></li>
+            </ul>
+        </nav>
+        <!-- controle do menu responsivo -->
+        <div>
+            <a class="icon" onclick="trocarClasse();">
+                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+            </a>
+        </div>
+    </header>
+    <main>
+        <div id="inicio">
+            <!-- BANNER DE FUNDO -->
+            <div class="area-flex">
+                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            </div>
+        </div>
+        <div>
+            <div class="area-flex cartao">
+                <div>
+                    <h2>Pedido recebido!</h2>
+                    <span class="espaco-linha">*</span>
+                    <p class="titulo">Sua doçura já está a caminho!</p>
+                    <span class="espaco-linha">*</span>
+                    <p>
+                        Só esperar uns minutinhos e seu pedido será entregue por nossos colaboradores.
+                    </p>
+                    <span class="espaco-linha">*</span>
+                    <p class="titulo">Agradecemos pela preferência!</p>
+                    <span class="espaco-linha">*</span>
+                </div>
+                <div class="area-flex">
+                    <!-- img src="img/relogio.png" alt="" -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="area-flex">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Início</a></li>
+                    <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                    <li><a th:href="@{/delivery}">Delivery</a></li>
+                    <li><a th:href="@{/sobre}">Sobre</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
+            </div>
+            <div>
+                <address>
+                    <p>
+                        <!-- img src="icon/pin.png" alt=""-->
+                        Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
+                        Santos / SP
+                    </p>
+                    <p>
+                        <!-- img src="icon/mail.png" alt=""-->
+                        contato@alodocura.com
+                    </p>
+                    <p>
+                        <!-- img src="icon/phone.png" alt="" -->
+                        (13) 3352-3656
+                    </p>
+                    <p>
+                        <!-- img src="icon/mobile.png" alt="" -->
+                        (13) 9 7431-5007
+                    </p>
+                </address>
+            </div>
+        </div>
+        <div>
+            <p>
+                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
