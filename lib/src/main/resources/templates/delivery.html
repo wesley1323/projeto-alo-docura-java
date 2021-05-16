@@ -36,22 +36,22 @@
             <div class="area-form cartao fundo-claro">
                 <div id="campo-erro">
                 </div>
-                <form action="#" method="post">
+                <form action="#" th:action="@{/pedido}" method="post" th:object="${cliente}">
                     <p class="cor-alerta">* Dados obrigatórios</p>
                     <fieldset>
                         <legend>Dados Pessoais</legend>
                         <div class="dado-form">
                             <label for="nome-cliente">Nome Completo <span class="cor-alerta">*</span></label>
-                            <input type="text" id="nome-cliente" name="nome-cliente" minlength="3" maxlength="60" required placeholder="Nome Completo">
+                            <input type="text" th:field="*{nome}" id="nome-cliente" required placeholder="Nome Completo">
                         </div>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="email-cliente">E-mail <span class="cor-alerta">*</span></label>
-                                <input type="email" id="email-cliente" name="email-cliente" minlength="15" maxlength="60" required placeholder="cliente@email.com">
+                                <label for="cpf-cliente">CPF <span class="cor-alerta">*</span></label>
+                                <input type="text" th:field="*{cpf}" id="cpf-cliente" required placeholder="cliente@email.com">
                             </div>
                             <div class="dado-form">
                                 <label for="telefone-cliente">Telefone <span class="cor-alerta">*</span></label>
-                                <input type="tel" id="telefone-cliente" name="telefone-cliente" minlength="10" maxlength="13" required placeholder="(XX) XXXX-XXXX" onkeypress="return somenteNumeros(event);">
+                                <input type="tel" th:field="*{telefone}" id="telefone-cliente" required placeholder="(XX) XXXX-XXXX">
                             </div>
                         </div>
                     </fieldset>
@@ -59,30 +59,22 @@
                         <legend>Endereço para entrega</legend>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="cep-cliente">CEP <span class="cor-alerta">*</span></label>
-                                <input type="text" id="cep-cliente" name="cep-cliente" maxlength="8" required placeholder="XXXXX-XXX" onkeypress="return somenteNumeros(event);">
-                            </div>
-                            <div class="dado-form">
                                 <label for="endereco-cliente">Endereço <span class="cor-alerta">*</span></label>
-                                <input type="text" id="endereco-cliente" name="endereco-cliente" minlength="5" maxlength="45" required placeholder="Rua das Flores, XX">
+                                <input type="text" th:field="*{endereco}" id="endereco-cliente" placeholder="Rua das Flores, XX">
                             </div>
                         </div>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="complemento-cliente">Complemento</label>
-                                <input type="text" id="complemento-cliente" name="complemento-cliente" maxlength="20" placeholder="apartamento XX">
-                            </div>
-                            <div class="dado-form">
                                 <label for="bairro-cliente">Bairro <span class="cor-alerta">*</span></label>
-                                <input type="text" id="bairro-cliente" name="bairro-cliente" minlength="5" maxlength="45" required placeholder="Margaridas">
+                                <input type="text" th:field="*{bairro}" id="bairro-cliente" placeholder="Margaridas">
                             </div>
                             <div class="dado-form">
                                 <label for="cidade-cliente">Cidade <span class="cor-alerta">*</span></label>
-                                <input type="text" id="cidade-cliente" name="cidade-cliente" minlength="5" maxlength="45" required placeholder="Santos">
+                                <input type="text" th:field="*{cidade}" id="cidade-cliente" placeholder="Santos">
                             </div>
                             <div class="dado-form">
                                 <label for="estado-cliente">Estado</label>
-                                <input id="estado-cliente" name="estado-cliente" value="SP" readonly disabled>
+                                <input id="estado-cliente" th:field="*{estado}" placeholder="SP">
                             </div>
                         </div>
                     </fieldset>
@@ -91,15 +83,15 @@
                         <div class="dados-flex">
                             <div>
                                 <label for="pagamento-cartao">Cartão (Crédito ou Débito)</label>
-                                <input type="radio" name="pagamento" id="pagamento-cartao" value="cartao">
+                                <input type="radio" th:field="*{estado}" id="pagamento-cartao" value="cartao">
                             </div>
                             <div>
                                 <label for="pagamento-dinheiro">À vista</label>
-                                <input type="radio" name="pagamento" id="pagamento-dinheiro" value="dinheiro" checked>
+                                <input type="radio" th:field="*{estado}" id="pagamento-dinheiro" value="dinheiro" checked>
                             </div>
                         </div>
                     </fieldset>
-                    <button id="enviar-pedido" class="botao-escuro" type="submit" onclick="validarDelivery();">Finalizar Pedido</button>
+                    <button id="enviar-pedido" class="botao-escuro" type="submit">Finalizar Pedido</button>
                 </form>
             </div>
         </section>
