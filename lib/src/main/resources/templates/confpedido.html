@@ -2,10 +2,10 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Alô Doçura | Confirmar Pedido</title>
+<title>Alô Doçura | Pedido</title>
 </head>
 <body>
-	<header>
+    <header>
         <h1>Alô Doçura</h1>
         <!-- img src="img/logo.png" alt=""-->
         <!-- Barra de navegação -->
@@ -31,41 +31,25 @@
                 <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
             </div>
         </div>
-        <section>
-            <h2>Confirme seu pedido!</h2>
-            <div class="area-form cartao fundo-claro">
-                <div id="campo-erro">
+        <div>
+            <div class="area-flex cartao">
+                <div>
+                    <h2>Pedido recebido!</h2>
+                    <span class="espaco-linha">*</span>
+                    <p class="titulo">Sua doçura já está a caminho!</p>
+                    <span class="espaco-linha">*</span>
+                    <p>
+                        Só esperar uns minutinhos e seu pedido será entregue por nossos colaboradores.
+                    </p>
+                    <span class="espaco-linha">*</span>
+                    <p class="titulo">Agradecemos pela preferência!</p>
+                    <span class="espaco-linha">*</span>
                 </div>
-                <form action="#" th:action="@{/pedido}" method="get" th:object="${pedido}">
-                    
-                    <div class="dado-form">
-                        <input type="hidden" th:field="*{idCliente}" th:value="{idCliente}" id="id-cliente">
-                    </div>
-                    <div class="dado-form">
-                        <input type="date" th:field="*{data}" id="id-data" required>
-                    </div>
-                    <div class="dado-form">
-                        <input type="time" th:field="*{hora}" id="id-hora" required>
-                    </div>
-                    
-                     <fieldset>
-                        <legend>Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
-                        <div class="dados-flex">
-                            <div>
-                                <label for="pagamento-cartao">Cartão de Débito</label>
-                                <input type="radio" th:field="*{pagamento}" id="pagamento-cartao" value="cartao">
-                            </div>
-                            <div>
-                                <label for="pagamento-dinheiro">À vista</label>
-                                <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" checked>
-                            </div>
-                        </div>
-                    </fieldset>   
-    
-                    <button id="conf-pedido" class="botao-escuro" type="submit">Confirmar Pedido</button>
-                </form>
+                <div class="area-flex">
+                    <!-- img src="img/relogio.png" alt="" -->
+                </div>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         <div class="area-flex">

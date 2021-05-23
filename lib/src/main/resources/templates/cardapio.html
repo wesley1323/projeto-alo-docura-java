@@ -15,6 +15,7 @@
                 <li><a th:href="@{/cardapio}">Cardápio</a></li>
                 <li><a th:href="@{/delivery}">Delivery</a></li>
                 <li><a th:href="@{/sobre}">Sobre</a></li>
+                <li><a th:href="@{/admin}">Administrador</a></li>
             </ul>
         </nav>
         <!-- controle do menu responsivo -->
@@ -33,80 +34,12 @@
         </div>
 		<section>
             <h2>Cardápio Alô Doçura</h2>
-            <div class="area-flex">
+            <div class="area-flex" th:each="produto : ${produto}">
                 <div class="cartao">
-                    <!-- img src="img/produto1.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta marrom."-->
-                    <h3 class="titulo">
-                        Doçura ao leite
-                    </h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        Uma explosão de sabor. É assim que nossos clientes se referem ao “Doçura ao leite”, um chocolate trabalhado com derivados de soja selecionada, oferecendo ao cliente um sabor digno de quem ama um bom chocolate.
-                    </p>
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto2.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege."-->
-                    <h3 class="titulo">Doçura de amendoim</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        O “Doçura de amendoim", surgiu de um pedido do pequeno Diego, trazendo o melhor de dois mundos, misturando cacau e amendoim de uma maneira inédita, prove! Você vai se apaixonar!
-                    </p>
-                    <!-- <span class="espaco-linha">*</span> -->
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto3.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta clara."-->
-                    <h3 class="titulo">Doçura com castanhas</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        Originado de uma receita enviada por uma de nossas primeiras clientes, o “Doçura com castanhas”, traz um chocolate que tem fama de “afrodisíaco” por suas fortes notas de castanhas do Pará.
-                    </p>
-                    <!-- <span class="espaco-linha">*</span> -->
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto5.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta verde."-->
-                    <h3 class="titulo">Doçura de menta</h3>
-                    <span class="espaco-linha">*</span>
-                    <p>
-                        A “doçura de menta” traz na sua essência o frescor,  somado ao intenso chocolate doçura, formam a mistura perfeita para aqueles que buscam novos sabores ao seu paladar.
-                    </p>
-                    <!-- <span class="espaco-linha">*</span> -->
-                </div>
-            </div>
-            <span class="espaco-linha">*</span>
-            <div class="area-flex">
-                <div class="cartao">
-                    <!-- img src="img/produto4.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta preta."-->
-                    <h3 class="titulo">Doçura crocante</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                       A "doçura crocante" foi o primeiro do cardápio e nosso despertar para a necessidade de consumo e paladar consciente, foi o que marcou nossa identidade e nos trouxe de vez para o mundo vegano. É feito à base de flocos de arroz, sua receita e sabor fizeram tanto sucesso que recebemos o prêmio Sabor inovador 2018, na categoria novas tendências.
-                    </p>
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto6.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta vermelha."-->
-                    <h3 class="titulo">Doçura de morango</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        A doçura de morango, ou, “chocolate do amor” é mais um daqueles que tivemos a honra de receber de nossos clientes. Trazido a nós por Amanda Alves, o chocolate do amor trás em seu preparo o morango da himalaia, sendo este responsável por dar tanto sabor a este que, aos poucos, tem se tornado cada vez mais famoso em meio a nossa clientela.
-                    </p>
-                    <!-- <span class="espaco-linha">*</span> -->
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto7.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta vibrante."-->
-                    <h3 class="titulo">Chocolate com pimenta</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        Conhecido como “chocaliente”, nossa doçura de pimenta traz em sua essência três pimentas, sendo duas nacionais e uma importada, recebemos inúmeros chamados de pessoas que odiavam pimenta, mas, ao provar nossa doçura se tornaram “chocalientes apaixonados.” Fazendo jus ao ditado que diz que “Os opostos se atraem”.
-                    </p>
-                    <!-- <span class="espaco-linha">*</span> -->
-                </div>
-                <div class="cartao">
-                    <!-- img src="img/produto8.png" alt="Três barras de chocolate embaladas em papel de cores claras e vibrantes, com o logotipo da marca."-->
-                    <h3 class="titulo">Chocolate Surpresa</h3>
-                    <!-- <span class="espaco-linha">*</span> -->
-                    <p>
-                        Por fim temos a doçura surpresa, um mix de inovação e adrenalina. Seu preparo é feito com as receitas que recebemos, apuramos, testamos, e percebemos um grande potencial. Atualmente é feito nos sabores, lichia, abacate, mel e banana com canela. Um mais saboroso que o outro, mas não esqueça de nos dizer o que achou de cada um depois de provar ok?
-                    </p>
+                    <img th:src="${produto.imgProduto}" alt="">
+                    <h3 class="titulo" th:text="${produto.nomeProduto}"></h3>
+                    <p th:text="${produto.descProduto}"></p>
+                    <p th:text="'R$ '+${produto.valor}"></p>
                 </div>
             </div>
         </section>

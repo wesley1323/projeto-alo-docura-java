@@ -4,8 +4,10 @@ public class Cliente {
 	private int idCliente;
 	private String nome, cpf, telefone,endereco, bairro, cidade, estado;
 	
-	public Cliente() {
-		
+	public Cliente() {}
+	
+	public Cliente(int idCliente) {
+		this.idCliente=idCliente;
 	}
 	
 	public Cliente(int idCliente, String nome, String cpf, String telefone, String endereco, String bairro, String cidade, String estado) {

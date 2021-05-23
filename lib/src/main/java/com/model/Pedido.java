@@ -2,19 +2,23 @@ package com.model;
 
 public class Pedido {
 	private int idPedido;
-	private String data, hora, pagamento;
-	private Cliente idCliente;
+	private int idCliente;
+	private String data;
+	private String hora;
+	private String pagamento;
 	
-	public Pedido() {
-		
+	public Pedido() {}
+	
+	public Pedido(int idCliente) {
+		this.idCliente=idCliente;
 	}
 	
-	public Pedido(int idPedido, String data, String hora, String pagamento, Cliente idCliente) {
+	public Pedido(int idPedido, int idCliente, String data, String hora, String pagamento) {
 		this.idPedido=idPedido;
+		this.idCliente=idCliente;
 		this.data=data;
 		this.hora=hora;
 		this.pagamento=pagamento;
-		this.idCliente=idCliente;
 	}
 	
 	public int getIdPedido() {
@@ -45,10 +49,10 @@ public class Pedido {
 		this.pagamento = pagamento;
 	}
 	
-	public Cliente getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(Cliente idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 	

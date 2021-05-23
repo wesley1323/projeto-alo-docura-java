@@ -20,12 +20,10 @@ public class PedidoDAO {
 	}
 	
 	public void inserirPedido(Pedido pedido) {
-		String sql = "INSERT INTO pedido (idCliente,data,hora,pagamento) VALUES (?,?,?,?)";
-		Object obj [] = new Object[4];
+		String sql = "INSERT INTO pedido(idCliente,data,hora,pagamento) VALUES (?,CURRENT_DATE,CURRENT_TIME,?)";
+		Object obj [] = new Object[2];
 		obj[0] = pedido.getIdCliente();
-		obj[1] = pedido.getData();
-		obj[2] = pedido.getHora();
-		obj[3] = pedido.getPagamento();
+		obj[1] = pedido.getPagamento();
 		
 		jdbc.update(sql,obj);
 	}

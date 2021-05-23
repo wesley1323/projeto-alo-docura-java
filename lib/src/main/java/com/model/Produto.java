@@ -6,8 +6,13 @@ public class Produto {
 	private String imgProduto, nomeProduto, descProduto;
 	private double valor;
 	
-	public Produto() {
-		
+	public Produto() {}
+	
+	public Produto(String imgProduto, String nomeProduto, String descProduto, double valor) {
+		this.imgProduto=imgProduto;
+		this.nomeProduto=nomeProduto;
+		this.descProduto=descProduto;
+		this.valor=valor;
 	}
 	
 	public Produto(int idProduto, String imgProduto, String nomeProduto, String descProduto, double valor) {

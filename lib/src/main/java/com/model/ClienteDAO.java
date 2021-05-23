@@ -1,5 +1,8 @@
 package com.model;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
@@ -35,5 +38,17 @@ public class ClienteDAO {
 		jdbc.update(sql, obj);
 	}
 	
+	public Map<String, Object> getCliente(String cpf) {
+    	String sql = "SELECT * FROM cliente WHERE cpf = ?";
+    	Object[] obj = new Object[1];
+		obj[0] = cpf;
+    	return jdbc.queryForMap(sql,obj);
+    }
+	
+	public List<Map<String, Object>> getClientes() {
+    	String sql = "SELECT * FROM cliente";
+    	List<Map<String, Object>> clientes = (List<Map<String, Object>>) jdbc.queryForList(sql);
+    	return clientes;
+    }
 	
 }

@@ -2,7 +2,7 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Alô Doçura | Confirmar Pedido</title>
+<title>Alô Doçura | Editar Produto</title>
 </head>
 <body>
 	<header>
@@ -33,56 +33,28 @@
             </div>
         </div>
         <section>
-            <h2>Confirme seu pedido!</h2>
+            <h2>Editar Produto</h2>
             <div class="area-form cartao fundo-claro">
-                <div>
-                	<h3>Dados Pessoais</h3>
-                	<ul>
-                		<!--  li th:text="'ID: '+${cli.idCliente}"></li-->
-                     	<li th:text="'Cliente: '+${cliente.nome}"></li>
-                     	<li th:text="'CPF: '+${cliente.cpf}"></li>
-                     	<li th:text="'Endereço: '+${cliente.endereco} +', '+${cliente.bairro}+' - '+${cliente.cidade}+' / '+${cliente.estado}"></li>
-                     </ul>
-                </div>
-                <form action="#" th:action="@{/confpedido}" method="post" th:object="${pedido}"> 
-                	<!-- input type="hidden" th:field="*{idCliente}" th:value="${cli.idCliente}"-->
-                	<!-- input type="date" th:field="*{data}">
-                	<input type="time" th:field="*{hora}" -->
-                     <fieldset>
-                     	<legend>Escolha os produtos</legend>                   
-                     	<!-- table>
-                     		<thead>
-                     			<tr>
-                     				<th>Produto</th>
-                     				<th>Descrição</th>
-                     				<th>Valor</th>
-                     				<th></th>
-                     			</tr>
-                     		</thead>
-                     		<tbody>
-                     			<tr>
-                     				<td></td>
-                     				<td></td>
-                     				<td></td>
-                     				<td>Adicionar ao Pedido</td>
-                     			</tr>
-                     		</tbody>
-                     	</table -->
-                     
-                        <legend>Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
-                        <div class="dados-flex">
-                            <div>
-                                <label for="pagamento-cartao">Cartão (Débito / Crédito)</label>
-                                <input type="radio" th:field="*{pagamento}" id="pagamento-cartao" value="cartao">
-                            </div>
-                            <div>
-                                <label for="pagamento-dinheiro">Dinheiro</label>
-                                <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" checked>
-                            </div>
-                        </div>
-                    </fieldset>   
-    
-                    <button id="conf-pedido" class="botao-escuro" type="submit">Confirmar Pedido</button>
+                <form action="#" th:action="@{'/editproduto/'+${idProduto}}" method="post">
+                    <p class="cor-alerta">* Dados obrigatórios</p>
+                    
+                    <div class="dado-form">
+                        <label for="nome-produto">Nome do Produto <span class="cor-alerta">*</span></label>
+                        <input type="text" th:field="*{antigo.nomeProduto}" id="nome-produto" required placeholder="Doçura ao Leite">
+                    </div>
+                    <div class="dado-form">
+                        <label for="desc-produto">Descrição <span class="cor-alerta">*</span></label>
+                        <textarea th:field="*{antigo.descProduto}" id="desc-produto" rows="6" required placeholder="Doçura ao Leite..."></textarea>
+                    </div>
+                    <div class="dado-form">
+                        <label for="img-produto">Link da Imagem <span class="cor-alerta">*</span></label>
+                        <input type="search" th:field="*{antigo.imgProduto}" id="img-produto" required placeholder="https://pedrosalvino.github.io/projeto-orientado/img/produto1.png">
+                    </div>
+                    <div class="dado-form">
+                        <label for="valor-produto">Valor <span class="cor-alerta">*</span></label>
+                        <input type="number" th:field="*{antigo.valor}" id="valor-produto" required step="0.25">
+                    </div>
+                    <button id="add-produto" class="botao-escuro" type="submit">Adicionar</button>
                 </form>
             </div>
         </section>

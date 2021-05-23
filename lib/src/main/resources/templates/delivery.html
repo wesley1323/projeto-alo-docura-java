@@ -15,6 +15,7 @@
                 <li><a th:href="@{/cardapio}">Cardápio</a></li>
                 <li><a th:href="@{/delivery}">Delivery</a></li>
                 <li><a th:href="@{/sobre}">Sobre</a></li>
+                <li><a th:href="@{/admin}">Administrador</a></li>
             </ul>
         </nav>
         <!-- controle do menu responsivo -->
@@ -36,7 +37,7 @@
             <div class="area-form cartao fundo-claro">
                 <div id="campo-erro">
                 </div>
-                <form action="#" th:action="@{/confpedido}" method="post" th:object="${cliente}">
+                <form action="#" th:action="@{/pedido}" method="post" th:object="${cliente}">
                     <p class="cor-alerta">* Dados obrigatórios</p>
                     <fieldset>
                         <legend>Dados Pessoais</legend>
@@ -79,7 +80,7 @@
                         </div>
                     </fieldset>
                     
-                    <button id="enviar-pedido" class="botao-escuro" type="submit">Finalizar Pedido</button>
+                    <button id="cad-info" class="botao-escuro" type="submit">Cadastrar Informações</button>
                 </form>
             </div>
         </section>

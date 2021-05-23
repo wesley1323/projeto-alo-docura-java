@@ -1,6 +1,7 @@
 package com.projeto;
 
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -8,15 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.Cliente;
 import com.model.ClienteService;
-import com.model.Pedido;
-import com.model.PedidoService;
-import com.model.Produto;
 import com.model.ProdutoService;
 
 
@@ -32,7 +26,10 @@ public class ProjetoController {
 	}
 	
 	@GetMapping("/cardapio")
-	public String cardapio() {
+	public String cardapio(Model model) {
+		ProdutoService pdao = context.getBean(ProdutoService.class);
+		List<Map<String,Object>> produtos = pdao.getProdutos();
+		model.addAttribute("produto",produtos);
 		return "cardapio";
 	}
 	
@@ -41,43 +38,15 @@ public class ProjetoController {
 		return "sobre";
 	}
 	
-	@GetMapping("/delivery")
-	public String formCliente(Model model) {
-		model.addAttribute("cliente",new Cliente());
-		return "delivery";
-	}
-	
-	@PostMapping("/confpedido")
-	public String postCliente(@ModelAttribute Cliente cli, Model model) {
-		ClienteService cs = context.getBean(ClienteService.class);
-		cs.inserirCliente(cli);
+	@GetMapping("/admin")
+	public String admin(Model model) {
+		ClienteService cdao = context.getBean(ClienteService.class);
+		List<Map<String,Object>> clientes = cdao.getClientes();
+		model.addAttribute("cliente",clientes);
 		
-		model.addAttribute("pedido",new Pedido());
-		return "confpedido";
-		
-	}
-	@GetMapping("/pedido")
-	public String postPedido(@ModelAttribute Pedido ped, @RequestParam(name="idCliente", required=true) int idCliente,Model model) {
-		PedidoService pds = context.getBean(PedidoService.class);
-		//model.addAttribute("idCliente",idCliente);
-		//
-		//Date d = new Date();
-		//model.addAttribute("data",d.getDate());
-		//model.addAttribute("hora",d.getTime());
-		pds.inserirPedido(ped);
-		return "pedido";
-	}
-	
-	@GetMapping("/produto")
-	public String formProduto(Model model) {
-		model.addAttribute("produto",new Produto());
-		return "produto";
-	}
-	
-	@PostMapping("/sucesso")
-	public String postProduto(@ModelAttribute Produto pro, Model model) {
-		ProdutoService ps = context.getBean(ProdutoService.class);
-		ps.inserirProduto(pro);
-		return "sucesso";
+		ProdutoService pdao = context.getBean(ProdutoService.class);
+		List<Map<String,Object>> produtos = pdao.getProdutos();
+		model.addAttribute("produto",produtos);
+		return "admin";
 	}
 }

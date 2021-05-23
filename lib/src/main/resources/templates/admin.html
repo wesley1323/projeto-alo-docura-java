@@ -2,10 +2,10 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Alô Doçura | Produto</title>
+<title>Alô Doçura | Administrador</title>
 </head>
 <body>
-	<header>
+    <header>
         <h1>Alô Doçura</h1>
         <!-- img src="img/logo.png" alt=""-->
         <!-- Barra de navegação -->
@@ -18,12 +18,6 @@
                 <li><a th:href="@{/admin}">Administrador</a></li>
             </ul>
         </nav>
-        <!-- controle do menu responsivo -->
-        <div>
-            <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
-            </a>
-        </div>
     </header>
     <main>
         <div id="inicio">
@@ -32,32 +26,71 @@
                 <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
             </div>
         </div>
-        <section>
-            <h2>Cadastrar um novo Produto</h2>
-            <div class="area-form cartao fundo-claro">
-                <form action="#" th:action="@{/sucesso}" method="post" th:object="${produto}">
-                    <p class="cor-alerta">* Dados obrigatórios</p>
-                    
-                    <div class="dado-form">
-                        <label for="nome-produto">Nome do Produto <span class="cor-alerta">*</span></label>
-                        <input type="text" th:field="*{nomeProduto}" id="nome-produto" required placeholder="Doçura ao Leite">
-                    </div>
-                    <div class="dado-form">
-                        <label for="desc-produto">Descrição <span class="cor-alerta">*</span></label>
-                        <textarea th:field="*{descProduto}" id="desc-produto" rows="6" required placeholder="Doçura ao Leite..."></textarea>
-                    </div>
-                    <div class="dado-form">
-                        <label for="img-produto">Link da Imagem <span class="cor-alerta">*</span></label>
-                        <input type="search" th:field="*{imgProduto}" id="img-produto" required placeholder="https://pedrosalvino.github.io/projeto-orientado/img/produto1.png">
-                    </div>
-                    <div class="dado-form">
-                        <label for="valor-produto">Valor <span class="cor-alerta">*</span></label>
-                        <input type="number" th:field="*{valor}" id="valor-produto" required step="0.25">
-                    </div>
-                    <button id="add-produto" class="botao-escuro" type="submit">Adicionar</button>
-                </form>
+        <div class="area-flex cartao">
+		 <div>
+		     <h2>Área do Administrador</h2>
+		     <div class="area-flex">
+		     	<div class="coluna">
+		     		<h3>Clientes</h3>
+		     		<table>
+		     			<thead>
+		     				<tr>
+		     					<th>ID</th>
+		     					<th>Nome</th>
+		     					<th>CPF</th>
+		     					<th> </th>
+		     				</tr>
+		     			</thead>
+		     			<tbody>
+		     				<tr th:each="cliente : ${cliente}">
+		     					<td th:text="${cliente.idCliente}"></td>
+		     					<td th:text="${cliente.nome}"></td>
+		     					<td th:text="${cliente.cpf}"></td>
+		     					<td></td>
+		     				</tr>
+		     			</tbody>
+		     		</table>
+		     		<div>
+		     			<a th:href="@{/delivery}">+ Adicionar Cliente +</a>
+		     		</div>
+		     	</div>
+		     	<div class="coluna">
+		     		<h3>Produtos</h3>
+		     		<table>
+		     			<thead>
+		     				<tr>
+		     					<th>ID</th>
+		     					<th>Nome</th>
+		     					<th>Valor</th>
+		     					<th></th>
+		     					<th></th>
+		     				</tr>
+		     			</thead>
+		     			<tbody>
+		     				<tr th:each="produto : ${produto}">
+		     					<td th:text="${produto.idProduto}"></td>
+		     					<td th:text="${produto.nomeProduto}"></td>
+		     					<td th:text="${produto.valor}"></td>
+		     					<td>
+		     						<a th:href="@{'/editproduto/'+${produto.idProduto}}">
+            							Editar
+            						</a>
+            					</td>
+		     					<td>
+		     						<form th:action="@{'/delproduto/'+${produto.idProduto}}" method="post">
+		     							<input type="submit" value="Deletar">
+		     						</form>
+		     					</td>
+		     				</tr>
+		     			</tbody>
+		     		</table>
+		     		<div>
+		     			<a th:href="@{/produto}">+ Adicionar Produto +</a>
+		     		</div>
+		     	</div>
+		     </div>
             </div>
-        </section>
+      	</div>
     </main>
     <footer>
         <div class="area-flex">
