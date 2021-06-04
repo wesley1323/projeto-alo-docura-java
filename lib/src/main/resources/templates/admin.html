@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Administrador</title>
 </head>
 <body>
     <header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt=""-->
+        <img th:src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -18,27 +20,26 @@
                 <li><a th:href="@{/admin}">Administrador</a></li>
             </ul>
         </nav>
+        <!-- controle do menu responsivo -->
+        <div>
+            <a href="#" class="icon" onclick="trocarClasse();">
+                <img th:src="@{img/menu-grande.png}" alt="menu responsivo">
+            </a>
+        </div>
     </header>
     <main>
-        <div id="inicio">
-            <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
-            </div>
-        </div>
         <div class="area-flex cartao">
 		 <div>
-		     <h2>Área do Administrador</h2>
+		     <h2 class="texto-vermelho">Área do Administrador</h2>
 		     <div class="area-flex">
-		     	<div class="coluna">
+		     	<div>
 		     		<h3>Clientes</h3>
 		     		<table>
 		     			<thead>
 		     				<tr>
-		     					<th>ID</th>
-		     					<th>Nome</th>
-		     					<th>CPF</th>
-		     					<th> </th>
+		     					<th class="texto-claro">ID</th>
+		     					<th class="texto-claro">Nome</th>
+		     					<th class="texto-claro">CPF</th>
 		     				</tr>
 		     			</thead>
 		     			<tbody>
@@ -46,24 +47,23 @@
 		     					<td th:text="${cliente.idCliente}"></td>
 		     					<td th:text="${cliente.nome}"></td>
 		     					<td th:text="${cliente.cpf}"></td>
-		     					<td></td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
 		     		<div>
-		     			<a th:href="@{/delivery}">+ Adicionar Cliente +</a>
+		     			<a class="link-botao botao-escuro" th:href="@{/delivery}">Adicionar Cliente</a>
 		     		</div>
 		     	</div>
-		     	<div class="coluna">
+		     	<div>
 		     		<h3>Produtos</h3>
 		     		<table>
 		     			<thead>
 		     				<tr>
-		     					<th>ID</th>
-		     					<th>Nome</th>
-		     					<th>Valor</th>
-		     					<th></th>
-		     					<th></th>
+		     					<th class="texto-claro">ID</th>
+		     					<th class="texto-claro">Nome</th>
+		     					<th class="texto-claro">Valor</th>
+		     					<th> </th>
+		     					<th> </th>
 		     				</tr>
 		     			</thead>
 		     			<tbody>
@@ -72,24 +72,24 @@
 		     					<td th:text="${produto.nomeProduto}"></td>
 		     					<td th:text="${produto.valor}"></td>
 		     					<td>
-		     						<a th:href="@{'/editproduto/'+${produto.idProduto}}">
+		     						<a class="link-botao-mini botao-escuro" th:href="@{'/editproduto/'+${produto.idProduto}}">
             							Editar
             						</a>
             					</td>
 		     					<td>
 		     						<form th:action="@{'/delproduto/'+${produto.idProduto}}" method="post">
-		     							<input type="submit" value="Deletar">
+		     							<button class="link-botao-mini botao-escuro" type="submit">Deletar</button>
 		     						</form>
 		     					</td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
 		     		<div>
-		     			<a th:href="@{/produto}">+ Adicionar Produto +</a>
+		     			<a class="link-botao botao-escuro" th:href="@{/produto}">Adicionar Produto</a>
 		     		</div>
 		     	</div>
 		     </div>
-            </div>
+   		</div>
       	</div>
     </main>
     <footer>
@@ -109,20 +109,20 @@
             <div>
                 <address>
                     <p>
-                        <!-- img src="icon/pin.png" alt=""-->
+                        <img th:src="@{img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!-- img src="icon/mail.png" alt=""-->
+                        <img th:src="@{img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!-- img src="icon/phone.png" alt="" -->
+                        <img th:src="@{img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!-- img src="icon/mobile.png" alt="" -->
+                        <img src="@{img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -130,7 +130,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+                Desenvolvido por <img th:src="@{img/wpk.png}" alt="">
             </p>
         </div>
     </footer>

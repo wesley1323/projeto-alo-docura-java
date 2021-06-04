@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Página Inicial</title>
 </head>
 <body>
 	 <header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt="Logotipo da alô doçura, com letras em tom claro." -->
+        <img th:src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -21,31 +23,31 @@
         <!-- controle do menu responsivo -->
         <div>
             <a href="#" class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo" -->
+                <img th:src="@{img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
         <!-- Banner -->
-        <div id="inicio">
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+        <div id="inicio" class="bg-warning">
+            <div class="area-flex centralizar">
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
-        <section id="cardapio">
-            <h2 class="texto-claro">Doçuras em destaque</h2>
+        <section id="cardapio" class="bg-primary">
+            <h2 class="text-light">Doçuras em destaque</h2>
             <div class="area-flex">
                 <div>
-                    <!-- img src="img/produto1.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta marrom."-->
-                    <h3 class="texto-claro titulo">Doçura ao leite</h3>
+                    <img th:src="@{img/produto1.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta marrom.">
+                    <h3 class="text-light">Doçura ao leite</h3>
                     <span class="espaco-linha">*</span>
                     <p>
                         Uma explosão de sabor. É assim que nossos clientes se referem ao “Doçura ao leite”, um chocolate trabalhado com derivados de soja selecionada, oferecendo ao cliente um sabor digno de quem ama um bom chocolate.
                     </p>
                 </div>
                 <div>
-                    <!-- img src="img/produto2.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege." -->
-                    <h3 class="texto-claro titulo">Doçura de amendoim</h3>
+                    <img th:src="@{img/produto2.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege.">
+                    <h3 class="text-light titulo">Doçura de amendoim</h3>
                     <span class="espaco-linha">*</span>
                     <p>
                          O “Doçura de amendoim", surgiu de um pedido do pequeno Diego, trazendo o melhor de dois mundos, misturando cacau e amendoim de uma maneira inédita, prove! Você vai se apaixonar!
@@ -53,8 +55,8 @@
                     <span class="espaco-linha">*</span>
                 </div>
                 <div>
-                    <!-- img src="img/produto3.png" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege" -->
-                    <h3 class="texto-claro titulo">Doçura com castanhas</h3>
+                    <img th:src="@{img/produto3.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege">
+                    <h3 class="text-light titulo">Doçura com castanhas</h3>
                     <span class="espaco-linha">*</span>
                     <p>
                         Originado de uma receita enviada por uma de nossas primeiras clientes, o “Doçura com castanhas”, traz um chocolate que tem fama de “afrodisíaco” por suas fortes notas de castanhas do Pará.
@@ -62,29 +64,29 @@
                     <span class="espaco-linha">*</span>
                 </div>
             </div>
-            <a class="link-botao botao-claro" th:href="@{/cardapio}">Veja o Cardápio</a>
+            <a class="link-botao btn-danger btn-lg" th:href="@{/cardapio}">Veja o Cardápio</a>
         </section>
-        <section id="delivery">
-            <h2 class="texto-escuro">Delivery</h2>
-            <div class="area-flex wrap">
-                <div>
-                    <!-- img src="img/delivery-1.png" alt="" -->
+        <section id="delivery" class="bg-light">
+            <h2 class="text-primary">Delivery</h2>
+            <div class="area-flex wrap centralizar">
+                <div class="text-center">
+                    <img class="img-home" th:src="@{img/delivery-1.png}" alt="">
                 </div>
                 <div>
-                    <p class="texto-escuro">
+                    <p class="text-secondary text-center">
                         No nosso delivery você tem todo o cuidado e agilidade na hora de comprar e receber, até porque nós sabemos que sua vontade de comer uma das nossas doçuras não pode ficar para depois.
                     </p>
-                    <a class="link-botao botao-escuro" th:href="@{/delivery}">Peça agora!</a>
+                    <a class="link-botao btn-primary btn-lg" th:href="@{/delivery}">Peça agora!</a>
                 </div>
             </div>
         </section>
-        <section id="contato">
-            <h2 class="texto-claro">Sobre</h2>
+        <section id="contato" class="bg-warning bg-pattern">
+            <h2 class="text-danger">Sobre</h2>
             <div class="area-flex wrap">
                 <div>
-                    <h3>Conheça a equipe</h3>
-                    <p>Gostou do nosso trabalho? Conheça um pouco mais sobre os desenvolvedores da Alô Doçura</p>
-                    <a class="link-botao botao-claro" th:href="@{/sobre}">Saiba Mais</a>
+                    <h3 class="text-primary">Conheça a equipe</h3>
+                    <p class="text-primary text-center">Gostou do nosso trabalho? Conheça um pouco mais sobre os desenvolvedores da Alô Doçura</p>
+                    <a class="link-botao btn-primary btn-sm" th:href="@{/sobre}">Saiba Mais</a>
                 </div>
             </div>
         </section>
@@ -97,29 +99,30 @@
                     <li><a th:href="@{/cardapio}">Cardápio</a></li>
                     <li><a th:href="@{/delivery}">Delivery</a></li>
                     <li><a th:href="@{/sobre}">Sobre</a></li>
+                    <li><a th:href="@{/admin}">Administrador</a></li>
                 </ul>
             </nav>
             <div>
-                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <h2>Sobre a <span class="text-light">Alô Doçura</span></h2>
                 <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
             </div>
             <div>
                 <address>
                     <p>
-                        <!-- img src="icon/pin.png" alt=""-->
+                        <img th:src="@{img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!-- img src="icon/mail.png" alt=""-->
+                        <img th:src="@{img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!-- img src="icon/phone.png" alt=""-->
+                        <img th:src="@{img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!-- img src="icon/mobile.png" alt=""-->
+                        <img th:src="@{img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -127,7 +130,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!-- img src="icon/wpk.png" alt=""-->
+                Desenvolvido por <img th:src="@{img/wpk.png}" alt="">
             </p>
         </div>
     </footer>
