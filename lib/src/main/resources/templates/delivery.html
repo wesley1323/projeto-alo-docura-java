@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Delivery</title>
 </head>
 <body>
 	<header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt=""-->
+        <img th:src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -21,66 +23,66 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+                <img src="@{img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
-        <div id="inicio">
+        <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            <div class="area-flex centralizar">
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
-        <section>
+        <section class="bg-secondary">
             <h2>Peça aqui a sua doçura</h2>
-            <div class="area-form cartao fundo-claro">
+            <div class="area-form cartao bg-light">
                 <div id="campo-erro">
                 </div>
                 <form action="#" th:action="@{/pedido}" method="post" th:object="${cliente}">
-                    <p class="cor-alerta">* Dados obrigatórios</p>
+                    <p class="text-danger">* Dados obrigatórios</p>
                     <fieldset>
-                        <legend>Dados Pessoais</legend>
+                        <legend class="text-primary">Dados Pessoais</legend>
                         <div class="dado-form">
-                            <label for="nome-cliente">Nome Completo <span class="cor-alerta">*</span></label>
+                            <label class="text-primary" for="nome-cliente">Nome Completo <span class="text-danger">*</span></label>
                             <input type="text" th:field="*{nome}" id="nome-cliente" required placeholder="Nome Completo">
                         </div>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="cpf-cliente">CPF <span class="cor-alerta">*</span></label>
-                                <input type="text" th:field="*{cpf}" id="cpf-cliente" required placeholder="cliente@email.com">
+                                <label class="text-primary" for="cpf-cliente">CPF <span class="text-danger">*</span></label>
+                                <input type="text" th:field="*{cpf}" id="cpf-cliente" required placeholder="XXX.XXX.XXX-XX">
                             </div>
                             <div class="dado-form">
-                                <label for="telefone-cliente">Telefone <span class="cor-alerta">*</span></label>
+                                <label class="text-primary" for="telefone-cliente">Telefone <span class="text-danger">*</span></label>
                                 <input type="tel" th:field="*{telefone}" id="telefone-cliente" required placeholder="(XX) XXXX-XXXX">
                             </div>
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend>Endereço para entrega</legend>
+                        <legend class="text-primary">Endereço para entrega</legend>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="endereco-cliente">Endereço <span class="cor-alerta">*</span></label>
+                                <label class="text-primary" for="endereco-cliente">Endereço <span class="text-danger">*</span></label>
                                 <input type="text" th:field="*{endereco}" id="endereco-cliente" placeholder="Rua das Flores, XX">
                             </div>
                         </div>
                         <div class="dados-flex">
                             <div class="dado-form">
-                                <label for="bairro-cliente">Bairro <span class="cor-alerta">*</span></label>
+                                <label class="text-primary" for="bairro-cliente">Bairro <span class="text-danger">*</span></label>
                                 <input type="text" th:field="*{bairro}" id="bairro-cliente" placeholder="Margaridas">
                             </div>
                             <div class="dado-form">
-                                <label for="cidade-cliente">Cidade <span class="cor-alerta">*</span></label>
+                                <label class="text-primary" for="cidade-cliente">Cidade <span class="text-danger">*</span></label>
                                 <input type="text" th:field="*{cidade}" id="cidade-cliente" placeholder="Santos">
                             </div>
                             <div class="dado-form">
-                                <label for="estado-cliente">Estado</label>
+                                <label class="text-primary" for="estado-cliente">Estado</label>
                                 <input id="estado-cliente" th:field="*{estado}" placeholder="SP">
                             </div>
                         </div>
                     </fieldset>
                     
-                    <button id="cad-info" class="botao-escuro" type="submit">Cadastrar Informações</button>
+                    <button id="cad-info" class="link-botao btn-primary btn-lg" type="submit">Fazer Pedido</button>
                 </form>
             </div>
         </section>

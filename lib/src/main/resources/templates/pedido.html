@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Confirmar Pedido</title>
 </head>
 <body>
 	<header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt=""-->
+        <img src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -21,68 +23,70 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+                <img src="icon/menus/menu-grande.png" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
-        <div id="inicio">
+        <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            <div class="area-flex centralizado">
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
             </div>
         </div>
-        <section>
+        <section class="bg-secondary">
             <h2>Confirme seu pedido!</h2>
-            <div class="area-form cartao fundo-claro">
+            <div class="area-form cartao bg-light">
                 <div>
-                	<h3>Dados Pessoais</h3>
+                	<h3 class="text-danger">Dados Pessoais</h3>
                 	<ul>
-                		<!--  li th:text="'ID: '+${cli.idCliente}"></li-->
-                     	<li th:text="'Cliente: '+${cliente.nome}"></li>
-                     	<li th:text="'CPF: '+${cliente.cpf}"></li>
-                     	<li th:text="'Endereço: '+${cliente.endereco} +', '+${cliente.bairro}+' - '+${cliente.cidade}+' / '+${cliente.estado}"></li>
+                		<li class="text-primary" th:text="'ID: '+${cli.idCliente}"></li>
+                     	<li class="text-primary" th:text="'Cliente: '+${cliente.nome}"></li>
+                     	<li class="text-primary" th:text="'CPF: '+${cliente.cpf}"></li>
+                     	<li class="text-primary" th:text="'Endereço: '+${cliente.endereco} +', '+${cliente.bairro}+' - '+${cliente.cidade}+' / '+${cliente.estado}"></li>
                      </ul>
                 </div>
                 <form action="#" th:action="@{/confpedido}" method="post" th:object="${pedido}"> 
-                	<!-- input type="hidden" th:field="*{idCliente}" th:value="${cli.idCliente}"-->
+                	<input type="hidden" th:field="*{idCliente}" th:value="${cli.idCliente}">
                 	<!-- input type="date" th:field="*{data}">
                 	<input type="time" th:field="*{hora}" -->
                      <fieldset>
-                     	<legend>Escolha os produtos</legend>                   
-                     	<!-- table>
-                     		<thead>
-                     			<tr>
-                     				<th>Produto</th>
-                     				<th>Descrição</th>
-                     				<th>Valor</th>
-                     				<th></th>
-                     			</tr>
-                     		</thead>
-                     		<tbody>
-                     			<tr>
-                     				<td></td>
-                     				<td></td>
-                     				<td></td>
-                     				<td>Adicionar ao Pedido</td>
-                     			</tr>
-                     		</tbody>
-                     	</table -->
+                     	<legend class="text-primary">Escolha os produtos</legend>                   
+                     	<table class="table-primary">
+			     			<thead class="bg-primary">
+			     				<tr>
+			     					<th class="text-primary">ID</th>
+			     					<th class="text-primary">Nome</th>
+			     					<th class="text-primary">Valor</th>
+			     					<th>Adicionar</th>
+			     					<th>Remover</th>
+			     				</tr>
+			     			</thead>
+			     			<tbody>
+			     				<tr th:each="produto : ${produto}">
+			     					<td class="text-primary" th:text="${produto.idProduto}"></td>
+			     					<td class="text-primary" th:text="${produto.nomeProduto}"></td>
+			     					<td class="text-primary" th:text="${produto.valor}"></td>
+			     					<td><button class="link-botao btn-sm btn-warning">+</button></td>
+			     					<td><button class="link-botao btn-sm btn-danger">-</button></td>
+			     				</tr>
+			     			</tbody>
+		     			</table>
                      
-                        <legend>Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
+                        <legend class="text-primary">Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
                         <div class="dados-flex">
                             <div>
-                                <label for="pagamento-cartao">Cartão (Débito / Crédito)</label>
+                                <label class="text-primary" for="pagamento-cartao">Cartão (Débito / Crédito)</label>
                                 <input type="radio" th:field="*{pagamento}" id="pagamento-cartao" value="cartao">
                             </div>
                             <div>
-                                <label for="pagamento-dinheiro">Dinheiro</label>
+                                <label class="text-primary" for="pagamento-dinheiro">Dinheiro</label>
                                 <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" checked>
                             </div>
                         </div>
                     </fieldset>   
     
-                    <button id="conf-pedido" class="botao-escuro" type="submit">Confirmar Pedido</button>
+                    <button id="conf-pedido" class="link-botao btn-lg btn-primary" type="submit">Confirmar Pedido</button>
                 </form>
             </div>
         </section>

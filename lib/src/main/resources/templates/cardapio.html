@@ -28,16 +28,16 @@
         </div>
     </header>
     <main>
-        <div id="inicio">
+        <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
+            <div class="area-flex centralizar">
                 <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
-		<section>
+		<section class="bg-primary">
             <h2>Cardápio Alô Doçura</h2>
-            <div class="area-flex">
-                <div class="cartao" th:each="produto : ${produto}">
+            <div class="area-flex wrap">
+                <div class="cartao bg-secondary" th:each="produto : ${produto}">
                     <img th:src="${produto.imgProduto}" alt="">
                     <h3 class="titulo" th:text="${produto.nomeProduto}"></h3>
                     <p th:text="${produto.descProduto}"></p>

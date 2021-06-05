@@ -1,5 +1,6 @@
 package com.projeto;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.model.Cliente;
 import com.model.ClienteService;
 import com.model.Pedido;
+import com.model.ProdutoService;
 
 @Controller
 @ComponentScan("com.model")
@@ -34,8 +36,12 @@ public class ClienteController {
 		Map<String,Object> cliente = cs.getCliente(cli.getCpf());
 		Cliente c = new Cliente((Integer)cliente.get("idCliente"));
 		model.addAttribute("cliente",cli);
+		model.addAttribute("cli",c);
 		model.addAttribute("pedido",new Pedido(c.getIdCliente()));
 		
+		ProdutoService pdao = context.getBean(ProdutoService.class);
+		List<Map<String,Object>> produtos = pdao.getProdutos();
+		model.addAttribute("produto",produtos);
 		return "pedido";
 	}
 }

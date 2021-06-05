@@ -37,6 +37,9 @@ h2, h3, caption{
 fieldset{
     margin: 15px 0px;
 }
+table{
+	width: 100%;
+}
 legend{
     font-size: 1.5rem;
     font-weight: bold;
@@ -206,6 +209,9 @@ address{
     align-items: center;
     justify-content: center;
 }
+.ajustar{
+	align-items: top;
+}
 .wrap{
     flex-wrap: wrap;
 }
@@ -221,6 +227,10 @@ address{
 	width: 80%;
 }
 /* FORM */
+.area-form{
+	width: 80%;
+	margin: 0 auto;
+}
 .dados-flex{
     display: flex;
     justify-content: space-around;
@@ -295,9 +305,17 @@ address{
     border: 0;
     text-align: center;
 }
+.btn-xs{
+	max-width: 100%;
+}
 .btn-lg{
 	max-width: 50%;
 }
 .btn-sm{
 	max-width: 30%;
+}
+
+.img-dev{
+	max-width: 80%;
+	margin: 0 auto;
 }

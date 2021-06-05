@@ -28,64 +28,64 @@
         </div>
     </header>
     <main>
-        <div class="area-flex cartao">
+        <div class="area-flex cartao bg-pattern">
 		 <div>
-		     <h2 class="texto-vermelho">Área do Administrador</h2>
-		     <div class="area-flex">
+		     <h2 class="text-danger">Área do Administrador</h2>
+		     <div class="area-flex cartao area-form bg-light ajustar">
 		     	<div>
-		     		<h3>Clientes</h3>
-		     		<table>
-		     			<thead>
+		     		<h3 class="text-primary">Clientes</h3>
+		     		<table class="table-primary">
+		     			<thead class="bg-primary">
 		     				<tr>
-		     					<th class="texto-claro">ID</th>
-		     					<th class="texto-claro">Nome</th>
-		     					<th class="texto-claro">CPF</th>
+		     					<th class="text-light">ID</th>
+		     					<th class="text-light">Nome</th>
+		     					<th class="text-light">CPF</th>
 		     				</tr>
 		     			</thead>
 		     			<tbody>
 		     				<tr th:each="cliente : ${cliente}">
-		     					<td th:text="${cliente.idCliente}"></td>
-		     					<td th:text="${cliente.nome}"></td>
-		     					<td th:text="${cliente.cpf}"></td>
+		     					<td class="text-primary" th:text="${cliente.idCliente}"></td>
+		     					<td class="text-primary" th:text="${cliente.nome}"></td>
+		     					<td class="text-primary" th:text="${cliente.cpf}"></td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
 		     		<div>
-		     			<a class="link-botao botao-escuro" th:href="@{/delivery}">Adicionar Cliente</a>
+		     			<a class="link-botao btn-lg btn-primary" th:href="@{/delivery}">Adicionar Cliente</a>
 		     		</div>
 		     	</div>
 		     	<div>
-		     		<h3>Produtos</h3>
-		     		<table>
-		     			<thead>
+		     		<h3 class="text-primary">Produtos</h3>
+		     		<table class="table-primary">
+		     			<thead class="bg-primary">
 		     				<tr>
-		     					<th class="texto-claro">ID</th>
-		     					<th class="texto-claro">Nome</th>
-		     					<th class="texto-claro">Valor</th>
+		     					<th class="text-light">ID</th>
+		     					<th class="text-light">Nome</th>
+		     					<th class="text-light">Valor</th>
 		     					<th> </th>
 		     					<th> </th>
 		     				</tr>
 		     			</thead>
 		     			<tbody>
 		     				<tr th:each="produto : ${produto}">
-		     					<td th:text="${produto.idProduto}"></td>
-		     					<td th:text="${produto.nomeProduto}"></td>
-		     					<td th:text="${produto.valor}"></td>
+		     					<td class="text-primary" th:text="${produto.idProduto}"></td>
+		     					<td class="text-primary" th:text="${produto.nomeProduto}"></td>
+		     					<td class="text-primary" th:text="${produto.valor}"></td>
 		     					<td>
-		     						<a class="link-botao-mini botao-escuro" th:href="@{'/editproduto/'+${produto.idProduto}}">
+		     						<a class="link-botao btn-lg btn-warning" th:href="@{'/editproduto/'+${produto.idProduto}}">
             							Editar
             						</a>
             					</td>
 		     					<td>
 		     						<form th:action="@{'/delproduto/'+${produto.idProduto}}" method="post">
-		     							<button class="link-botao-mini botao-escuro" type="submit">Deletar</button>
+		     							<button class="link-botao btn-xs btn-danger" type="submit">Apagar</button>
 		     						</form>
 		     					</td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
 		     		<div>
-		     			<a class="link-botao botao-escuro" th:href="@{/produto}">Adicionar Produto</a>
+		     			<a class="link-botao btn-lg btn-primary" th:href="@{/produto}">Adicionar Produto</a>
 		     		</div>
 		     	</div>
 		     </div>
@@ -103,7 +103,7 @@
                 </ul>
             </nav>
             <div>
-                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <h2>Sobre a <span class="text-light">Alô Doçura</span></h2>
                 <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
             </div>
             <div>

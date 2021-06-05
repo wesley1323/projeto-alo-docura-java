@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Sobre</title>
 </head>
 <body>
 	<header>
         <h1>Alô Doçura</h1>
-        <!--img src="img/logo.png" alt=""-->
+        <img th:src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -21,68 +23,68 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+                <img th:src="@{img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
-        <div id="inicio">
+        <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            <div class="area-flex centralizar">
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
         <section>
             <div class="area-form cartao">
-                <table>
-                    <caption class="texto-escuro titulo">Conheça os desenvolvedores da Alô Doçura</caption>
-                    <thead>
-                        <tr class="texto-claro">
-                            <th>Karoline Teodoro</th>
-                            <th>Pedro Salvino</th>
-                            <th>Wesley Nascimento</th>
+                <table class="table-primary">
+                    <caption class="text-danger">Conheça os desenvolvedores da Alô Doçura</caption>
+                    <thead class="bg-primary">
+                        <tr>
+                            <th class="text-warning">Karoline Teodoro</th>
+                            <th class="text-warning">Pedro Salvino</th>
+                            <th class="text-warning">Wesley Nascimento</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="centralizar">
                         <tr>
                             <td>
-                                <!--img src="img/karoline.png" alt="Integrante Karoline. Ela é branca, tem olhos verdes e cabelo escuro."-->
+                                <div class="img-dev"><img th:src="@{img/karoline.png}" alt="Integrante Karoline. Ela é branca, tem olhos verdes e cabelo escuro."></div>
                             </td>
                             <td>
-                                <!--img src="img/pedro.jpg" alt="Integrante Pedro Luiz. Ele é negro, tem olhos castanhos, usa óculos pretos e tem o cabelo curto."-->
+                                <div class="img-dev"><img th:src="@{img/pedro.jpg}" alt="Integrante Pedro Luiz. Ele é negro, tem olhos castanhos, usa óculos pretos e tem o cabelo curto."></div>
                             </td>
                             <td>
-                                <!--img src="img/wesley.png" alt="Integrante Wesley. Ele é negro, tem cabelo escuro curto, olhos castanhos e barba volumosa."-->
+                                <div class="img-dev"><img th:src="@{img/wesley.png}" alt="Integrante Wesley. Ele é negro, tem cabelo escuro curto, olhos castanhos e barba volumosa."></div>
                             </td>
                         </tr>
                         <tr>
-                            <td class="texto-dark">
+                            <td class="text-primary text-center">
                                 Apaixonada desde sempre por tecnologia e design, decidiu tornar hobby em profissão. Escolheu Sistemas para Internet pois a grade tem a combinação perfeita de tudo o que sempre gostou. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </td>
-                            <td class="texto-dark">
+                            <td class="text-primary text-center">
                                 Desenvolvedor de aplicações web e estudante de Sistemas para Internet. Livros de fantasia e músicas são seus maiores combustíveis, assim como estudar assuntos técnicos e teóricos envolvendo tecnologia.
                             </td>
-                            <td class="texto-dark">
+                            <td class="text-primary text-center">
                                 Estudante de sistemas para Internet. Trabalha atualmente como inspetor de cargas e tem uma filha chamada Melissa, de oito anos. Seus hobbies são correr, nadar e atualmente desenvolver aplicativos web.
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
-                        <tr class="texto-centro">
+                        <tr class="text-center">
                             <td>
-                                <a class="link-botao botao-escuro" href="https://linktr.ee/kateodoros">
+                                <a class="link-botao btn-primary btn-lg" href="https://linktr.ee/kateodoros">
                                     Redes Sociais
                                 </a>
                                 <br>
                             </td>
                             <td>
-                                <a class="link-botao botao-escuro" href="https://linktr.ee/pedrosalvino">
+                                <a class="link-botao btn-primary btn-lg" href="https://linktr.ee/pedrosalvino">
                                     Redes Sociais
                                 </a>
                                 <br>
                             </td>
                             <td>
-                                <a class="link-botao botao-escuro" href="https://linktr.ee/wesley23">
+                                <a class="link-botao btn-primary btn-lg" href="https://linktr.ee/wesley23">
                                     Redes Sociais
                                 </a>
                                 <br>
@@ -102,6 +104,7 @@
                     <li><a th:href="@{/cardapio}">Cardápio</a></li>
                     <li><a th:href="@{/delivery}">Delivery</a></li>
                     <li><a th:href="@{/sobre}">Sobre</a></li>
+                    <li><a th:href="@{/admin}">Administrador</a></li>
                 </ul>
             </nav>
             <div>
@@ -111,20 +114,20 @@
             <div>
                 <address>
                     <p>
-                        <!--img src="icon/pin.png" alt=""-->
+                        <img th:src="@{img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!--img src="icon/mail.png" alt=""-->
+                        <img th:src="@{img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!--img src="icon/phone.png" alt=""-->
+                        <img th:src="@{img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!--img src="icon/mobile.png" alt=""-->
+                        <img th:src="@{img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -132,7 +135,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!--img src="icon/wpk.png" alt=""-->
+                Desenvolvido por <img th:src="@{img/wpk.png}" alt="">
             </p>
         </div>
     </footer>

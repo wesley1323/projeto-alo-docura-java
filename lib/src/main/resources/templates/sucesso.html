@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{css/main.css}">
+<link rel="stylesheet" th:href="@{css/mobile.css}">
 <title>Alô Doçura | Sucesso</title>
 </head>
 <body>
     <header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt=""-->
+        <img th:src="@{img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -20,31 +22,30 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+                <img th:src="@{img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
-        <div id="inicio">
+        <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+            <div class="area-flex centralizar">
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
-        <div>
-            <div class="area-flex cartao">
+        <div class="bg-secondary">
+            <div class="area-flex area-form cartao bg-light centralizar">
                 <div>
-                    <h2>Produto cadastrado com sucesso!</h2>
+                    <h2 class="text-danger text-center">Produto cadastrado com sucesso!</h2>
                     <span class="espaco-linha">*</span>
-                    <p class="titulo">Acesse o cardápio e veja a nova doçura</p>
+                    <p class="text-primary text-center">Acesse o cardápio e veja a nova doçura</p>
                     <span class="espaco-linha">*</span>
-                    <p th:text="${produto.nomeProduto}"></p>
-                    <span class="espaco-linha">*</span>
+                    <a class="link-botao btn-lg btn-primary" th:href="@{/cardapio}">Cardápio</a>
                     
                     <span class="espaco-linha">*</span>
                 </div>
-                <div class="area-flex">
-                    <!-- img src="img/relogio.png" alt="" -->
+                <div class="area-flex centralizar">
+                    <img th:src="@{img/relogio.png}" alt="">
                 </div>
             </div>
         </div>
@@ -66,20 +67,20 @@
             <div>
                 <address>
                     <p>
-                        <!-- img src="icon/pin.png" alt=""-->
+                        <img th:src="@{img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!-- img src="icon/mail.png" alt=""-->
+                        <img th:src="@{img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!-- img src="icon/phone.png" alt="" -->
+                        <img th:src="@{img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!-- img src="icon/mobile.png" alt="" -->
+                        <img th:src="@{img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -87,7 +88,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+                Desenvolvido por <img th:src="@{img/wpk.png}" alt="">
             </p>
         </div>
     </footer>

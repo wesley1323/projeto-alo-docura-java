@@ -2,12 +2,14 @@
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/mobile.css}">
 <title>Alô Doçura | Editar Produto</title>
 </head>
 <body>
 	<header>
         <h1>Alô Doçura</h1>
-        <!-- img src="img/logo.png" alt=""-->
+        <img th:src="@{/img/logo.png}" alt="">
         <!-- Barra de navegação -->
         <nav>
             <ul>
@@ -21,40 +23,34 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <!-- img src="icon/menus/menu-grande.png" alt="menu responsivo"-->
+                <img th:src="@{/img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
     <main>
-        <div id="inicio">
-            <!-- BANNER DE FUNDO -->
-            <div class="area-flex">
-                <!-- img src="img/banner.png" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
-            </div>
-        </div>
-        <section>
-            <h2>Editar Produto</h2>
-            <div class="area-form cartao fundo-claro">
-                <form action="#" th:action="@{'/editproduto/'+${idProduto}}" method="post">
-                    <p class="cor-alerta">* Dados obrigatórios</p>
+        <section class="bg-pattern">
+            <h2 class="text-danger">Editar Produto</h2>
+            <div class="area-form cartao bg-light">
+                <form th:action="@{'/editproduto/'+${idProduto}}" method="post">
+                    <p class="text-danger">* Dados obrigatórios</p>
                     
                     <div class="dado-form">
-                        <label for="nome-produto">Nome do Produto <span class="cor-alerta">*</span></label>
+                        <label class="text-primary" for="nome-produto">Nome do Produto <span class="text-danger">*</span></label>
                         <input type="text" th:field="*{antigo.nomeProduto}" id="nome-produto" required placeholder="Doçura ao Leite">
                     </div>
                     <div class="dado-form">
-                        <label for="desc-produto">Descrição <span class="cor-alerta">*</span></label>
+                        <label class="text-primary" for="desc-produto">Descrição <span class="text-danger">*</span></label>
                         <textarea th:field="*{antigo.descProduto}" id="desc-produto" rows="6" required placeholder="Doçura ao Leite..."></textarea>
                     </div>
                     <div class="dado-form">
-                        <label for="img-produto">Link da Imagem <span class="cor-alerta">*</span></label>
+                        <label class="text-primary" for="img-produto">Link da Imagem <span class="text-danger">*</span></label>
                         <input type="search" th:field="*{antigo.imgProduto}" id="img-produto" required placeholder="https://pedrosalvino.github.io/projeto-orientado/img/produto1.png">
                     </div>
                     <div class="dado-form">
-                        <label for="valor-produto">Valor <span class="cor-alerta">*</span></label>
+                        <label class="text-primary" for="valor-produto">Valor <span class="text-danger">*</span></label>
                         <input type="number" th:field="*{antigo.valor}" id="valor-produto" required step="0.25">
                     </div>
-                    <button id="add-produto" class="botao-escuro" type="submit">Adicionar</button>
+                    <button id="add-produto" class="link-botao btn-xs btn-primary" type="submit">Adicionar</button>
                 </form>
             </div>
         </section>
@@ -67,6 +63,7 @@
                     <li><a th:href="@{/cardapio}">Cardápio</a></li>
                     <li><a th:href="@{/delivery}">Delivery</a></li>
                     <li><a th:href="@{/sobre}">Sobre</a></li>
+                    <li><a th:href="@{/admin}">Administrador</a></li>
                 </ul>
             </nav>
             <div>
@@ -76,20 +73,20 @@
             <div>
                 <address>
                     <p>
-                        <!-- img src="icon/pin.png" alt=""-->
+                        <img th:src="@{/img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!-- img src="icon/mail.png" alt=""-->
+                        <img th:src="@{/img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!-- img src="icon/phone.png" alt="" -->
+                        <img th:src="@{/img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!-- img src="icon/mobile.png" alt="" -->
+                        <img th:src="@{/img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -97,7 +94,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+                Desenvolvido por <img th:src="@{/img/wpk.png}" alt="">
             </p>
         </div>
     </footer>
