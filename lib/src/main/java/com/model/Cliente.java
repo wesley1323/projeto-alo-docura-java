@@ -10,8 +10,7 @@ public class Cliente {
 		this.idCliente=idCliente;
 	}
 	
-	public Cliente(int idCliente, String nome, String cpf, String telefone, String endereco, String bairro, String cidade, String estado) {
-		this.idCliente=idCliente;
+	public Cliente(String nome, String cpf, String telefone, String endereco, String bairro, String cidade, String estado) {
 		this.nome=nome;
 		this.cpf=cpf;
 		this.setTelefone(telefone);

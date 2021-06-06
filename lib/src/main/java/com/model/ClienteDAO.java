@@ -45,11 +45,25 @@ public class ClienteDAO {
     	return jdbc.queryForMap(sql,obj);
     }
 	
+	public Map<String, Object> getClienteId(int id) {
+    	String sql = "SELECT * FROM cliente WHERE idCliente = ?";
+    	Object[] obj = new Object[1];
+		obj[0] = id;
+    	return jdbc.queryForMap(sql,obj);
+    }
+	
 	public List<Map<String, Object>> getClientes() {
     	String sql = "SELECT * FROM cliente";
     	List<Map<String, Object>> clientes = (List<Map<String, Object>>) jdbc.queryForList(sql);
     	return clientes;
     }
+	
+	public void updateCliente(int idCliente,Cliente cli) {
+    	String sql = "UPDATE cliente SET nome = ?, cpf = ?, telefone = ?, endereco = ?, bairro = ?, cidade = ?, estado = ?  WHERE idCliente = ?";
+    	 jdbc.update(sql, new Object[]{
+         		cli.getNome(),cli.getCpf(),cli.getTelefone(),cli.getEndereco(),cli.getBairro(),cli.getCidade(),cli.getEstado(), idCliente
+         });
+	 }
 	
 	public void deleteCliente(int idCliente) {
 		String sqlP = "DELETE FROM pedido WHERE idCliente = ?";

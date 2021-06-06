@@ -48,6 +48,24 @@ public class ClienteController {
 		return "pedido";
 	}
 	
+	@GetMapping("/editcliente/{idCliente}")
+    public String atualizaCliente(@PathVariable("idCliente") int idCliente, Model model){
+		ClienteService cdao = context.getBean(ClienteService.class);
+		Map<String,Object> antigo = cdao.getClienteId(idCliente);
+		
+		Cliente cli = new Cliente((String)antigo.get("nome"),(String)antigo.get("cpf"),(String)antigo.get("telefone"),(String)antigo.get("endereco"),(String)antigo.get("bairro"),(String)antigo.get("cidade"),(String)antigo.get("estado"));
+		model.addAttribute("antigo",cli);
+		model.addAttribute("idCliente",idCliente);
+		return "editcliente";
+    }
+	
+	@PostMapping("/editcliente/{idCliente}")
+	public String update(@PathVariable("idCliente") int idCliente,@ModelAttribute Cliente cli, Model model) {
+		ClienteService cdao = context.getBean(ClienteService.class);
+		cdao.updateCliente(idCliente, cli);
+		return "redirect:/admin";
+	}
+	
 	@PostMapping("/delcliente/{idCliente}")
 	public String deleteCliente(@PathVariable("idCliente") int id,Model model) {
 		ClienteService cdao = context.getBean(ClienteService.class);

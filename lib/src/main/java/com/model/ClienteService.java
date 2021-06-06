@@ -20,8 +20,16 @@ public class ClienteService {
 		return cdao.getCliente(cpf);
 	}
 	
+	public Map<String, Object> getClienteId(int id) {
+		return cdao.getClienteId(id);
+	}
+	
 	public List<Map<String, Object>> getClientes() {
 		return cdao.getClientes();
+	}
+	
+	public void updateCliente(int idCliente,Cliente cli) {
+		cdao.updateCliente(idCliente, cli);
 	}
 	
 	public void deleteCliente(int idCliente) {

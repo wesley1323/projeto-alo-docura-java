@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/mobile.css}">
+<script th:src="@{/js/main.js}"></script>
+<title>Alô Doçura | Editar Produto</title>
+</head>
+<body>
+	<header>
+        <h1>Alô Doçura</h1>
+        <img th:src="@{/img/logo.png}" alt="">
+        <!-- Barra de navegação -->
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Início</a></li>
+                <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                <li><a th:href="@{/delivery}">Delivery</a></li>
+                <li><a th:href="@{/sobre}">Sobre</a></li>
+                <li><a th:href="@{/admin}">Administrador</a></li>
+            </ul>
+        </nav>
+        <!-- controle do menu responsivo -->
+        <div>
+            <a class="icon" onclick="trocarClasse();">
+                <img th:src="@{/img/menu-grande.png}" alt="menu responsivo">
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="bg-pattern">
+            <h2 class="text-danger">Editar Cliente</h2>
+            <div class="area-form cartao bg-light">
+                <form th:action="@{'/editcliente/'+${idCliente}}" method="post">
+                    <p class="text-danger">* Dados obrigatórios</p>
+                    
+                    <div class="dado-form">
+                        <label class="text-primary" for="nome-cliente">Nome Completo<span class="text-danger">*</span></label>
+                        <input type="text" th:field="*{antigo.nome}" id="nome-cliente" required placeholder="Nome Sobrenome">
+                    </div>
+                    <div class="dado-form">
+                        <label class="text-primary" for="cpf-cliente">CPF <span class="text-danger">*</span></label>
+                        <input type="text" th:field="*{antigo.cpf}" id="cpf-cliente" required placeholder="XXXXXXXXXXX">
+                    </div>
+                    <div class="dado-form">
+                        <label class="text-primary" for="tel-cliente">Telefone <span class="text-danger">*</span></label>
+                        <input type="text" th:field="*{antigo.telefone}" id="tel-cliente" required placeholder="XXXXXXXXXXX">
+                    </div>
+                    <div class="dados-flex">
+                            <div class="dado-form">
+                                <label class="text-primary" for="endereco-cliente">Endereço <span class="text-danger">*</span></label>
+                                <input type="text" th:field="*{antigo.endereco}" id="endereco-cliente" placeholder="Rua das Flores, XX" required>
+                            </div>
+                        </div>
+                        <div class="dados-flex">
+                            <div class="dado-form">
+                                <label class="text-primary" for="bairro-cliente">Bairro <span class="text-danger">*</span></label>
+                                <input type="text" th:field="*{antigo.bairro}" id="bairro-cliente" placeholder="Margaridas" required>
+                            </div>
+                            <div class="dado-form">
+                                <label class="text-primary" for="cidade-cliente">Cidade <span class="text-danger">*</span></label>
+                                <input type="text" th:field="*{antigo.cidade}" id="cidade-cliente" placeholder="Santos" required>
+                            </div>
+                            <div class="dado-form">
+                                <label class="text-primary" for="estado-cliente">Estado</label>
+                                <input id="estado-cliente" th:field="*{antigo.estado}" placeholder="SP" required>
+                            </div>
+                        </div>
+                    <button id="add-produto" class="link-botao btn-xs btn-primary" type="submit">Editar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="area-flex">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Início</a></li>
+                    <li><a th:href="@{/cardapio}">Cardápio</a></li>
+                    <li><a th:href="@{/delivery}">Delivery</a></li>
+                    <li><a th:href="@{/sobre}">Sobre</a></li>
+                    <li><a th:href="@{/admin}">Administrador</a></li>
+                </ul>
+            </nav>
+            <div>
+                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
+            </div>
+            <div>
+                <address>
+                    <p>
+                        <img th:src="@{/img/pin.png}" alt="">
+                        Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
+                        Santos / SP
+                    </p>
+                    <p>
+                        <img th:src="@{/img/mail.png}" alt="">
+                        contato@alodocura.com
+                    </p>
+                    <p>
+                        <img th:src="@{/img/phone.png}" alt="">
+                        (13) 3352-3656
+                    </p>
+                    <p>
+                        <img th:src="@{/img/mobile.png}" alt="">
+                        (13) 9 7431-5007
+                    </p>
+                </address>
+            </div>
+        </div>
+        <div>
+            <p>
+                Desenvolvido por <img th:src="@{/img/wpk.png}" alt="">
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -52,10 +52,10 @@
 		     					<td class="text-primary text-center" th:text="${cliente.cpf}"></td>
 		     					<td class="text-primary text-center" th:text="${cliente.telefone}"></td>
 		     					<td>
-		     						<form th:action="@{'/delcliente/'+${cliente.idCliente}}" method="post">
-		     							<button class="link-botao btn-xs btn-danger" type="submit">Apagar</button>
-		     						</form>
-		     					</td>
+		     						<a class="link-botao btn-lg btn-warning" th:href="@{'/editcliente/'+${cliente.idCliente}}">
+            							Editar
+            						</a>
+            					</td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
