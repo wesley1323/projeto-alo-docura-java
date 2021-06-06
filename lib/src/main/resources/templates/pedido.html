@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{css/main.css}">
 <link rel="stylesheet" th:href="@{css/mobile.css}">
+<script th:src="@{js/main.js}"></script>
 <title>Alô Doçura | Confirmar Pedido</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
         <!-- controle do menu responsivo -->
         <div>
             <a class="icon" onclick="trocarClasse();">
-                <img src="icon/menus/menu-grande.png" alt="menu responsivo">
+                <img th:src="@{img/menu-grande.png}" alt="menu responsivo">
             </a>
         </div>
     </header>
@@ -31,7 +32,7 @@
         <div id="inicio" class="bg-warning">
             <!-- BANNER DE FUNDO -->
             <div class="area-flex centralizado">
-                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura."-->
+                <img th:src="@{img/banner.png}" alt="Banner de cor clara contendo o logotipo da marca Alô Doçura.">
             </div>
         </div>
         <section class="bg-secondary">
@@ -40,7 +41,6 @@
                 <div>
                 	<h3 class="text-danger">Dados Pessoais</h3>
                 	<ul>
-                		<li class="text-primary" th:text="'ID: '+${cli.idCliente}"></li>
                      	<li class="text-primary" th:text="'Cliente: '+${cliente.nome}"></li>
                      	<li class="text-primary" th:text="'CPF: '+${cliente.cpf}"></li>
                      	<li class="text-primary" th:text="'Endereço: '+${cliente.endereco} +', '+${cliente.bairro}+' - '+${cliente.cidade}+' / '+${cliente.estado}"></li>
@@ -48,31 +48,22 @@
                 </div>
                 <form action="#" th:action="@{/confpedido}" method="post" th:object="${pedido}"> 
                 	<input type="hidden" th:field="*{idCliente}" th:value="${cli.idCliente}">
-                	<!-- input type="date" th:field="*{data}">
-                	<input type="time" th:field="*{hora}" -->
+         
                      <fieldset>
-                     	<legend class="text-primary">Escolha os produtos</legend>                   
-                     	<table class="table-primary">
-			     			<thead class="bg-primary">
-			     				<tr>
-			     					<th class="text-primary">ID</th>
-			     					<th class="text-primary">Nome</th>
-			     					<th class="text-primary">Valor</th>
-			     					<th>Adicionar</th>
-			     					<th>Remover</th>
-			     				</tr>
-			     			</thead>
-			     			<tbody>
-			     				<tr th:each="produto : ${produto}">
-			     					<td class="text-primary" th:text="${produto.idProduto}"></td>
-			     					<td class="text-primary" th:text="${produto.nomeProduto}"></td>
-			     					<td class="text-primary" th:text="${produto.valor}"></td>
-			     					<td><button class="link-botao btn-sm btn-warning">+</button></td>
-			     					<td><button class="link-botao btn-sm btn-danger">-</button></td>
-			     				</tr>
-			     			</tbody>
-		     			</table>
-                     
+                     	<legend class="text-primary">Escolha sua doçura</legend>
+		     			<div class="dados-flex">
+		     				<div class="dado-form">
+		     					<label class="text-primary" for="produto">Escolha o sabor</label>
+			     				<select th:field="*{idProduto}" required>
+			     					<option th:each="produto : ${produto}" th:text="${produto.nomeProduto}" th:value="${produto.idProduto}"></option>
+			     				</select>
+		     				</div>
+		     				<div class="dado-form">
+		     					<label class="text-primary" for="quantidade">Quantidade</label>
+		     					<input type="number" min="1" max="100" th:field="*{quantidade}" required>
+		     				</div>
+		     			</div>	
+		     			
                         <legend class="text-primary">Escolha a forma de pagamento <span class="cor-alerta">*</span></legend>
                         <div class="dados-flex">
                             <div>
@@ -81,7 +72,7 @@
                             </div>
                             <div>
                                 <label class="text-primary" for="pagamento-dinheiro">Dinheiro</label>
-                                <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" checked>
+                                <input type="radio" th:field="*{pagamento}" id="pagamento-dinheiro" value="dinheiro" th:checked="${pedido.pagamento}">
                             </div>
                         </div>
                     </fieldset>   
@@ -99,29 +90,30 @@
                     <li><a th:href="@{/cardapio}">Cardápio</a></li>
                     <li><a th:href="@{/delivery}">Delivery</a></li>
                     <li><a th:href="@{/sobre}">Sobre</a></li>
+                    <li><a th:href="@{/admin}">Administrador</a></li>
                 </ul>
             </nav>
             <div>
-                <h2>Sobre a <span class="texto-claro">Alô Doçura</span></h2>
+                <h2>Sobre a <span class="text-light">Alô Doçura</span></h2>
                 <p>Somos mais que uma empresa. A família “Alô Doçura” é focada em trazer aos nossos clientes os mais requintados sabores mostrando que ser vegano não é ser estranho, é ser consciente de que pode sim haver harmonia entre o ser humano e a natureza.</p>
             </div>
             <div>
                 <address>
                     <p>
-                        <!-- img src="icon/pin.png" alt=""-->
+                        <img th:src="@{img/pin.png}" alt="">
                         Rua Sweet Hello, 23 - 110450-023<br>Parque das Abelhas - 
                         Santos / SP
                     </p>
                     <p>
-                        <!-- img src="icon/mail.png" alt=""-->
+                        <img th:src="@{img/mail.png}" alt="">
                         contato@alodocura.com
                     </p>
                     <p>
-                        <!-- img src="icon/phone.png" alt="" -->
+                        <img th:src="@{img/phone.png}" alt="">
                         (13) 3352-3656
                     </p>
                     <p>
-                        <!-- img src="icon/mobile.png" alt="" -->
+                        <img th:src="@{img/mobile.png}" alt="">
                         (13) 9 7431-5007
                     </p>
                 </address>
@@ -129,7 +121,7 @@
         </div>
         <div>
             <p>
-                Desenvolvido por <!--img src="icon/wpk.png" alt="" -->
+                Desenvolvido por <img th:src="@{img/wpk.png}" alt="">
             </p>
         </div>
     </footer>

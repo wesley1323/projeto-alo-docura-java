@@ -51,4 +51,11 @@ public class ClienteDAO {
     	return clientes;
     }
 	
+	public void deleteCliente(int idCliente) {
+		String sqlP = "DELETE FROM pedido WHERE idCliente = ?";
+		jdbc.update(sqlP, new Object[] {idCliente});
+		
+		String sqlC = "DELETE FROM cliente WHERE idCliente = ?";
+		jdbc.update(sqlC, new Object[] {idCliente});
+	 }
 }

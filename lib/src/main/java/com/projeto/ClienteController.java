@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.model.Cliente;
@@ -33,8 +34,10 @@ public class ClienteController {
 	public String postCliente(@ModelAttribute Cliente cli, Model model) {
 		ClienteService cs = context.getBean(ClienteService.class);
 		cs.inserirCliente(cli);
+		
 		Map<String,Object> cliente = cs.getCliente(cli.getCpf());
 		Cliente c = new Cliente((Integer)cliente.get("idCliente"));
+		
 		model.addAttribute("cliente",cli);
 		model.addAttribute("cli",c);
 		model.addAttribute("pedido",new Pedido(c.getIdCliente()));
@@ -43,5 +46,12 @@ public class ClienteController {
 		List<Map<String,Object>> produtos = pdao.getProdutos();
 		model.addAttribute("produto",produtos);
 		return "pedido";
+	}
+	
+	@PostMapping("/delcliente/{idCliente}")
+	public String deleteCliente(@PathVariable("idCliente") int id,Model model) {
+		ClienteService cdao = context.getBean(ClienteService.class);
+		cdao.deleteCliente(id);
+		return "redirect:/admin";
 	}
 }

@@ -23,4 +23,8 @@ public class ClienteService {
 	public List<Map<String, Object>> getClientes() {
 		return cdao.getClientes();
 	}
+	
+	public void deleteCliente(int idCliente) {
+		cdao.deleteCliente(idCliente);
+	}
 }

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{css/main.css}">
 <link rel="stylesheet" th:href="@{css/mobile.css}">
+<script th:src="@{js/main.js}"></script>
 <title>Alô Doçura | Página Inicial</title>
 </head>
 <body>
@@ -36,32 +37,11 @@
         </div>
         <section id="cardapio" class="bg-primary">
             <h2 class="text-light">Doçuras em destaque</h2>
-            <div class="area-flex">
-                <div>
-                    <img th:src="@{img/produto1.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta marrom.">
-                    <h3 class="text-light">Doçura ao leite</h3>
-                    <span class="espaco-linha">*</span>
-                    <p>
-                        Uma explosão de sabor. É assim que nossos clientes se referem ao “Doçura ao leite”, um chocolate trabalhado com derivados de soja selecionada, oferecendo ao cliente um sabor digno de quem ama um bom chocolate.
-                    </p>
-                </div>
-                <div>
-                    <img th:src="@{img/produto2.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege.">
-                    <h3 class="text-light titulo">Doçura de amendoim</h3>
-                    <span class="espaco-linha">*</span>
-                    <p>
-                         O “Doçura de amendoim", surgiu de um pedido do pequeno Diego, trazendo o melhor de dois mundos, misturando cacau e amendoim de uma maneira inédita, prove! Você vai se apaixonar!
-                    </p>
-                    <span class="espaco-linha">*</span>
-                </div>
-                <div>
-                    <img th:src="@{img/produto3.png}" alt="Duas barras de chocolate, uma partida e outra embalada em papel claro com uma etiqueta bege">
-                    <h3 class="text-light titulo">Doçura com castanhas</h3>
-                    <span class="espaco-linha">*</span>
-                    <p>
-                        Originado de uma receita enviada por uma de nossas primeiras clientes, o “Doçura com castanhas”, traz um chocolate que tem fama de “afrodisíaco” por suas fortes notas de castanhas do Pará.
-                    </p>
-                    <span class="espaco-linha">*</span>
+            <div class="area-flex wrap">
+                <div class="cartao bg-secondary" th:each="produto : ${produto}">
+                    <img th:src="${produto.imgProduto}" alt="">
+                    <h3 class="titulo" th:text="${produto.nomeProduto}"></h3>
+                    <p th:text="${produto.descProduto}"></p>
                 </div>
             </div>
             <a class="link-botao btn-danger btn-lg" th:href="@{/cardapio}">Veja o Cardápio</a>
