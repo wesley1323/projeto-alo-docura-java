@@ -43,6 +43,7 @@
 		     					<th class="text-light text-center">CPF</th>
 		     					<th class="text-light text-center">Telefone</th>
 		     					<th> </th>
+		     					<th> </th>
 		     				</tr>
 		     			</thead>
 		     			<tbody>
@@ -56,6 +57,11 @@
             							Editar
             						</a>
             					</td>
+            					<td>
+		     						<form th:action="@{'/delcliente/'+${cliente.idCliente}}" method="post">
+		     							<button class="link-botao btn-xs btn-danger" type="submit">Apagar</button>
+		     						</form>
+		     					</td>
 		     				</tr>
 		     			</tbody>
 		     		</table>
